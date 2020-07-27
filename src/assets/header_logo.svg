@@ -1,0 +1,38 @@
+<svg id="图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 330">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f2ea2a;
+      }
+
+      .cls-2 {
+        font-size: 117.11px;
+        font-family: SourceHanSansSC-Regular, SourceHanSansSC Regular-GBpc-EUC-H;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #231815;
+      }
+
+      .cls-3 {
+        font-size: 31.78px;
+        font-family: SourceHanSansSC-Medium, SourceHanSansSC Medium-GBpc-EUC-H;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        fill: #2b66b1;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="-0.27" y="34.18" width="504.86" height="272.27" rx="8.72"/>
+  <text class="cls-2" transform="translate(13.19 270.26)">叫到帮</text>
+  <text class="cls-3" transform="translate(16.74 101.86)">HELPER FACTION</text>
+  <rect class="cls-4" x="380.18" y="17.3" width="129.25" height="310.7" rx="11.8"/>
+  <path class="cls-5" d="M444.8,118.48,429.69,110V90.66c-11.66,5-19.7,15.58-19.7,27.82,0,13,9,24,21.76,28.62v51.1C419,202.78,410,213.86,410,226.82c0,12.25,8,22.83,19.7,27.82v-19.3l15.11-8.52,15.12,8.52v19.3c11.66-5,19.7-15.57,19.7-27.82,0-13-9-24-21.76-28.62V147.1c12.75-4.58,21.76-15.66,21.76-28.62,0-12.24-8-22.83-19.7-27.82V110Z"/>
+</svg>
