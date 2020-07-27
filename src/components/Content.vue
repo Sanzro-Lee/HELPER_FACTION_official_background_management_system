@@ -15,10 +15,12 @@ export default {
   data() {
     return {
       mockData: [
-        { country: 'Asia', year: '1750', value: 502,},
-        { country: 'Asia', year: '1800', value: 635,},
-        { country: 'Europe', year: '1750', value: 163,},
-        { country: 'Europe', year: '1800', value: 203,},
+        {country: '平均交易金额', month: '2月', value: 502,},
+        {country: '平均交易金额', month: '3月', value: 635,},
+        {country: '平均交易金额', month: '4月', value: 635,},
+        {country: '当月总交易金额', month: '2月', value: 163,},
+        {country: '当月总交易金额', month: '3月', value: 203,},
+        {country: '当月总交易金额', month: '4月', value: 203,},
       ]
     }
   },
@@ -35,16 +37,16 @@ export default {
         },
         data: this.mockData,
         meta: {
-          year: {
+          month: {
             alias:'年份',
             range: [0, 1],
           },
           value: {
             alias: '数量',
-            formatter:(v)=>{return `${v}个`}
+            formatter:(v)=>{return `${v}`}
           }
         },
-        xField: 'year',
+        xField: 'month',
         yField: 'value',
         stackField: 'country',
       }
