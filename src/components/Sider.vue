@@ -1,5 +1,5 @@
 <template>
-  <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
+  <a-layout-sider v-model="collapsed" :trigger="null" collapsedvalue>
     <div>
       <img class="logo" src="../assets/header_logo.svg" style="margin-left: 20px; background: none;" />
     </div>
@@ -39,7 +39,8 @@ export default {
   },
   components: {},
   props: {
-    collapsedvalue: {type: Boolean}
+    collapsed: {type:Boolean},
+    // collapsedvalue: {type: Boolean}
   }
 };
 </script>

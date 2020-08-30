@@ -2,7 +2,7 @@
   <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
     <Sider collapsed="collapsed" />
     <a-layout>
-      <Header />
+      <Header collapsed="collapsed" />
       <div :style="{ fontSize: '20px', marginTop: '1rem', marginLeft: '1rem' }">总览</div>
       <a-range-picker @change="onChange" :style="{ width: '240px', position: 'absolute', top: '5rem', right: '1rem' }" />
       <Content />
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Header from './components/Header.vue';
 import Sider from './components/Sider.vue';
 import Content from './components/Content.vue';
@@ -21,7 +22,8 @@ import Content from './components/Content.vue';
 export default {
   data() {
     return {
-      collapsed: false
+      collapsed: false,
+      // collapsedvalue: true
     }
   },
   components: {
@@ -34,6 +36,12 @@ export default {
     onChange(date, dateString) {
       console.log(date, dateString);
     }
+  },
+
+  mounted() {
+    axios.get('/news').then(res => {
+      console.log(res.data)
+    })
   }
 };
 </script>

@@ -35,7 +35,7 @@ cd HELPER_FACTION_official_background_management_system
 npm i
 
 # development
-npm run start
+npm run serve
 
 # production
 npm run build

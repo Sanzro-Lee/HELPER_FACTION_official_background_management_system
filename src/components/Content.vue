@@ -9,7 +9,7 @@
 
 <script>
 // import Table from './components/Table';
-import { StackArea } from '@antv/g2plot';
+import { StackedArea } from '@antv/g2plot';
 
 export default {
   data() {
@@ -26,7 +26,7 @@ export default {
   },
 
   mounted() {
-    const areaPlot = new StackArea(document.getElementById('canvas'),
+    const areaPlot = new StackedArea(document.getElementById('canvas'),
       {
         title: {
           visible: true,

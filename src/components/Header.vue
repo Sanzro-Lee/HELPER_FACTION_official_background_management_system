@@ -18,6 +18,9 @@ export default {
     return {}
   },
   components: {},
+  props: {
+    collapsed: {type: Boolean}
+  }
 };
 </script>
 
