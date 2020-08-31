@@ -1,5 +1,5 @@
 <template>
-  <a-layout-sider v-model="collapsed" :trigger="null" collapsedvalue>
+  <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
     <div>
       <img class="logo" src="../assets/header_logo.svg" style="margin-left: 20px; background: none;" />
     </div>
@@ -16,15 +16,15 @@
         <a-icon type="user" />
         <span>用户列表</span>
       </a-menu-item>
-      <a-menu-item key="">
+      <a-menu-item key="4">
         <a-icon type="user" />
         <span>师傅列表</span>
       </a-menu-item>
-      <a-menu-item key="4">
+      <a-menu-item key="5">
         <a-icon type="user-add" />
         <span>员工列表</span>
       </a-menu-item>
-      <a-menu-item key="5">
+      <a-menu-item key="6">
         <a-icon type="barcode" />
         <span>上传广告图</span>
       </a-menu-item>
@@ -35,36 +35,38 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      collapsed: false
+    }
   },
   components: {},
   props: {
-    collapsed: {type:Boolean},
+    // collapsed: {type:Boolean},
     // collapsedvalue: {type: Boolean}
   }
 };
 </script>
 
 <style>
-.ant-layout-sider {
-  background: #2866B1;
-  color: #fff;
-}
+  .ant-layout-sider {
+    background: #2866B1;
+    color: #fff;
+  }
 
-.ant-menu-item {
-  color: #fff;
-}
+  .ant-menu-item {
+    color: #fff;
+  }
 
-.ant-menu-item-selected {
-  background: #245C9F;
-  color: #fff;
-}
+  .ant-menu-item-selected {
+    background: #245C9F;
+    color: #fff;
+  }
 
-.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: #245C9F !important;
-}
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #245C9F !important;
+  }
 
-.ant-menu-inline .ant-menu-item::after {
-  border-right-color: #F1E928 !important;
-}
+  .ant-menu-inline .ant-menu-item::after {
+    border-right-color: #F1E928 !important;
+  }
 </style>

@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
+import './mock.js'
+
 import 'ant-design-vue/dist/antd.css';
 import App from './App';
-
-require('./mock.js')
 
 Vue.config.productionTip = false;
 
