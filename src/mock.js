@@ -35,7 +35,6 @@ Mock.mock(`${domain}/tranval`, 'get', req => {
             {country: '平均交易金额', month: '10月', value: 1042,},
             {country: '平均交易金额', month: '11月', value: 656,},
             {country: '平均交易金额', month: '12月', value: 878,},
-
             {country: '当月总交易金额', month: '1月', value: 303,},
             {country: '当月总交易金额', month: '2月', value: 163,},
             {country: '当月总交易金额', month: '3月', value: 233,},
