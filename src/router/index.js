@@ -5,6 +5,11 @@ import ForgetPW from '../pages/ForgetPW.vue'
 
 const routes = [
     {
+        path: '/',
+        name: 'login Page',
+        component: Login
+    },
+    {
         path: '/login',
         name: 'login Page',
         component: Login

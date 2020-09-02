@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="loginpagebg"></div>
+    <div class="forgetpwpagebg"></div>
     <div class="leftside"></div>
     <div class="rightside">
       <h1 class="logintitle">叫到帮</h1>
@@ -47,11 +47,12 @@
             确定
           </a-button>
           <a-button class="signupbtn" type="dange">
-            取消
+            <router-link to="/login">取消</router-link>
           </a-button>
         </a-form-item>
       </a-form>
     </div>
+    <span class="footertext">Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since 2018</span>
   </div>
 </template>
 
@@ -103,78 +104,13 @@ export default {
 }
 </script>
 
-<style>
-  .main {
+<style scoped>
+  .forgetpwpagebg {
+    background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/signuppagebg.png) no-repeat !important;
+    background-size: cover !important;
     width: 100%;
     height: 100%;
-  }
-
-  .loginpagebg {
-    background: url(https://github.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/blob/master/src/assets/signuppagebg.png?raw=true) no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-  }
-
-  .leftside {
-    background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/logo01.png) no-repeat;
-    background-size: contain;
     position: absolute;
-    width: 15%;
-    height: 20%;
-    top: -1rem;
-    left: 1rem;
-  }
-
-  .rightside {
-    width: 50%;
-    height: 100%;
-    background-color: white;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: auto;
-  }
-
-  .logintitle {
-    margin: 5vw 0 2vw 0;
-    text-align: center;
-    font-size: 3rem;
-  }
-
-  .weltext {
-    display: block;
-    margin-bottom: 4vw;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .ant-form-item {
-    width: 40vw;
-    display: grid;
-    left: 5vw;
-  }
-
-  .ant-form-item-control-wrapper {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .ant-input {
-    height: 4rem;
-    font-size: 1rem;
-  }
-
-  .ant-btn {
-    width: 48%;
-    height: 3rem;
-    border-radius: 50px;
-    margin: 2rem 0 2rem 0;
-  }
-
-  .signupbtn {
-    float: right;
-    border-color: #4D4F5C;
-    color: #4D4F5C;
+    overflow: hidden;
   }
 </style>

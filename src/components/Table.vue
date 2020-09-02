@@ -149,6 +149,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .ant-table td { white-space: nowrap; }
 </style>

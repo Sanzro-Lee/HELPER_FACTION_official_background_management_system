@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .ant-layout-sider {
     background: #2866B1;
     color: #fff;
