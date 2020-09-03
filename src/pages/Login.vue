@@ -85,6 +85,12 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
+					this.$router.push({
+						path: '/index',
+						// query: {
+						// 	xxx: 'xxx'
+						// }
+					})
           console.log('Received values of form: ', values);
         }
       });

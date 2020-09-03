@@ -1,9 +1,17 @@
 <template>
   <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
     <div>
-      <img class="logo" src="../assets/header_logo.svg" style="margin-left: 20px; background: none;" />
+      <img
+        class="logo"
+        src="../assets/header_logo.svg"
+        style="margin: 20px 0 20px 20px; background: none; width: 80px;"
+      />
     </div>
-    <a-menu mode="inline" :default-selected-keys="['1']" style="background: #2866B1">
+    <a-menu
+      mode="inline"
+      :default-selected-keys="['1']"
+      style="background: #2866B1"
+    >
       <a-menu-item key="1">
         <a-icon type="home" />
         <span>总览</span>
@@ -36,37 +44,37 @@
 export default {
   data() {
     return {
-      collapsed: false
-    }
+      collapsed: false,
+    };
   },
   components: {},
   props: {
     // collapsed: {type:Boolean},
     // collapsedvalue: {type: Boolean}
-  }
+  },
 };
 </script>
 
 <style scoped>
-  .ant-layout-sider {
-    background: #2866B1;
-    color: #fff;
-  }
+.ant-layout-sider {
+  background: #2866b1;
+  color: #fff;
+}
 
-  .ant-menu-item {
-    color: #fff;
-  }
+.ant-menu-item {
+  color: #fff;
+}
 
-  .ant-menu-item-selected {
-    background: #245C9F;
-    color: #fff;
-  }
+.ant-menu-item-selected {
+  background: #245c9f;
+  color: #fff;
+}
 
-  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background-color: #245C9F !important;
-  }
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #245c9f !important;
+}
 
-  .ant-menu-inline .ant-menu-item::after {
-    border-right-color: #F1E928 !important;
-  }
+.ant-menu-inline .ant-menu-item::after {
+  border-right-color: #f1e928 !important;
+}
 </style>

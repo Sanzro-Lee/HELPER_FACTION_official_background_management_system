@@ -20,11 +20,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .logintitle {
-    margin: 6vw 0 2vw 0;
+    margin: 4vw 0 2vw 0;
     text-align: center;
     font-size: 3rem;
 }
@@ -43,13 +43,13 @@
 
 .ant-form-item-control-wrapper {
     width: 100%;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.2rem !important;
 }
 
-.ant-input {
+/* .ant-input {
     height: 4rem !important;
     font-size: 1.2rem !important;
-}
+} */
 
 .rememberpw {
     float: left;
@@ -79,4 +79,6 @@
     bottom: 0;
     text-align: center;
     color: #808080;
+    opacity: 0.4;
+    mix-blend-mode: difference;
 }

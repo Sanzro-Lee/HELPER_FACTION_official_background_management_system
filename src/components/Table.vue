@@ -6,7 +6,9 @@
       <a-tag
         v-for="tag in tags"
         :key="tag"
-        :color="tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'"
+        :color="
+          tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'
+        "
       >
         {{ tag.toUpperCase() }}
       </a-tag>
@@ -24,119 +26,119 @@
 <script>
 const columns = [
   {
-    dataIndex: 'name',
-    key: 'name',
-    slots: { title: 'customTitle' },
-    scopedSlots: { customRender: 'name' },
+    dataIndex: "name",
+    key: "name",
+    slots: { title: "customTitle" },
+    scopedSlots: { customRender: "name" },
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: "Age",
+    dataIndex: "age",
+    key: "age",
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    title: "Address",
+    dataIndex: "address",
+    key: "address",
   },
   {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    scopedSlots: { customRender: 'tags' },
+    title: "Tags",
+    key: "tags",
+    dataIndex: "tags",
+    scopedSlots: { customRender: "tags" },
   },
   {
-    title: 'Action',
-    key: 'action',
-    scopedSlots: { customRender: 'action' },
+    title: "Action",
+    key: "action",
+    scopedSlots: { customRender: "action" },
   },
 ];
 
 const data = [
   {
-    key: '1',
-    name: 'John Brown',
+    key: "1",
+    name: "John Brown",
     age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
+    address: "New York No. 1 Lake Park",
+    tags: ["nice", "developer"],
   },
   {
-    key: '2',
-    name: 'Jim Green',
+    key: "2",
+    name: "Jim Green",
     age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    address: "London No. 1 Lake Park",
+    tags: ["loser"],
   },
   {
-    key: '3',
-    name: 'Joe Black',
+    key: "3",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '4',
-    name: 'Joe Black',
+    key: "4",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '5',
-    name: 'Joe Black',
+    key: "5",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '6',
-    name: 'Joe Black',
+    key: "6",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '7',
-    name: 'Joe Black',
+    key: "7",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '8',
-    name: 'Joe Black',
+    key: "8",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '9',
-    name: 'Joe Black',
+    key: "9",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '10',
-    name: 'Joe Black',
+    key: "10",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '11',
-    name: 'Joe Black',
+    key: "11",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
   },
   {
-    key: '12',
-    name: 'Joe Black',
+    key: "12",
+    name: "Joe Black",
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  }
+    address: "Sidney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
+  },
 ];
 
 export default {
@@ -150,5 +152,7 @@ export default {
 </script>
 
 <style scoped>
-  .ant-table td { white-space: nowrap; }
+.ant-table td {
+  white-space: nowrap;
+}
 </style>
