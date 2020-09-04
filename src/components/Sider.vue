@@ -1,17 +1,9 @@
 <template>
-  <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
+  <a-layout-sider>
     <div>
-      <img
-        class="logo"
-        src="../assets/header_logo.svg"
-        style="margin: 20px 0 20px 20px; background: none; width: 80px;"
-      />
+      <img class="leftsidelogo" src="../assets/header_logo.svg" />
     </div>
-    <a-menu
-      mode="inline"
-      :default-selected-keys="['1']"
-      style="background: #2866B1"
-    >
+    <a-menu class="antmenu" mode="inline" :default-selected-keys="['1']">
       <a-menu-item key="1">
         <a-icon type="home" />
         <span>总览</span>
@@ -43,19 +35,24 @@
 <script>
 export default {
   data() {
-    return {
-      collapsed: false,
-    };
+    return {};
   },
   components: {},
-  props: {
-    // collapsed: {type:Boolean},
-    // collapsedvalue: {type: Boolean}
-  },
+  props: {},
 };
 </script>
 
 <style scoped>
+.leftsidelogo {
+  margin: 20px 0 20px 30%;
+  background: none;
+  width: 80px;
+}
+
+.antmenu {
+  background: #2866b1;
+}
+
 .ant-layout-sider {
   background: #2866b1;
   color: #fff;

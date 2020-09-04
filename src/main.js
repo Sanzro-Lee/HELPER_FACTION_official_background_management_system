@@ -17,6 +17,6 @@ const g2plot = require("@antv/g2plot");
 Vue.prototype.$g2plot = g2plot;
 
 new Vue({
-  router,
-  render: (h) => h(App),
+	router,
+	render: (h) => h(App),
 }).$mount("#app");

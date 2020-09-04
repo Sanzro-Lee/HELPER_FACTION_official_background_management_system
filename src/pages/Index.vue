@@ -1,15 +1,15 @@
 <template>
   <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
-    <Sider collapsed="collapsed" />
+    <Sider />
     <a-layout>
-      <Header collapsed="collapsed" />
+      <Header />
       <div class="contentTitle">总览</div>
       <a-range-picker class="datePicker" @change="onChange" />
       <Content />
-      <a-layout-footer style="textAlign: center"
-        >Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
-        2018</a-layout-footer
-      >
+      <a-layout-footer style="textAlign: center">
+        Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
+        2018
+      </a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
@@ -22,10 +22,7 @@ import Content from "../components/Content.vue";
 
 export default {
   data() {
-    return {
-      collapsed: false,
-      // collapsedvalue: true
-    };
+    return {};
   },
   components: {
     Header,
@@ -79,6 +76,6 @@ export default {
 }
 
 .ant-input {
-	height: 40px !important;
+  height: 40px !important;
 }
 </style>

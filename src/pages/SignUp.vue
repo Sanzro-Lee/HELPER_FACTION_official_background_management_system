@@ -6,18 +6,25 @@
       <h1 class="logintitle">叫到帮</h1>
       <span class="weltext">欢迎回来！请你注册你的账号</span>
       <a-form layout="inline" :form="form" @submit="handleSubmit">
-        <a-form-item :validate-status="userNameError() ? 'error' : ''" :help="userNameError() || ''">
+        <a-form-item
+          :validate-status="userNameError() ? 'error' : ''"
+          :help="userNameError() || ''"
+        >
           <a-input
             v-decorator="[
               'userName',
               { rules: [{ required: true, message: '啊咧？用户名咧？' }] },
             ]"
             placeholder="请输入用户名"
+            class="antdinput"
           >
             <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
-        <a-form-item :validate-status="passwordError() ? 'error' : ''" :help="passwordError() || ''">
+        <a-form-item
+          :validate-status="passwordError() ? 'error' : ''"
+          :help="passwordError() || ''"
+        >
           <a-input
             v-decorator="[
               'password',
@@ -25,37 +32,41 @@
             ]"
             type="password"
             placeholder="请输入密码"
+            class="antdinput"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
         <a-form-item>
-          <a-input
-            type="password"
-            placeholder="请在输入一次上面的密码"
-          >
+          <a-input class="antdinput" type="password" placeholder="请在输入一次上面的密码">
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
-        <a-form-item :validate-status="userNameError() ? 'error' : ''" :help="userNameError() || ''">
-          <a-input
-            placeholder="请输入手机号码"
-          >
+        <a-form-item
+          :validate-status="userNameError() ? 'error' : ''"
+          :help="userNameError() || ''"
+        >
+          <a-input class="antdinput" placeholder="请输入手机号码">
             <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
-        <a-form-item :validate-status="userNameError() ? 'error' : ''" :help="userNameError() || ''">
-          <a-input
-            placeholder="收到的验证码"
-          >
+        <a-form-item
+          :validate-status="userNameError() ? 'error' : ''"
+          :help="userNameError() || ''"
+        >
+          <a-input class="antdinput" placeholder="收到的验证码">
             <a-icon slot="prefix" type="message" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
-        <a-form-item>
-          <a-button type="primary" html-type="submit" :disabled="hasErrors(form.getFieldsError())">
-            确认
-          </a-button>
-          <a-button class="signupbtn" type="dange">
+        <a-form-item class="antbtngrounp">
+          <a-button
+            class="loginbtn"
+            type="primary"
+            html-type="submit"
+            :disabled="hasErrors(form.getFieldsError())"
+            shape="round"
+          >确认</a-button>
+          <a-button class="signupbtn" type="dange" shape="round">
             <router-link to="/login">取消</router-link>
           </a-button>
         </a-form-item>
@@ -66,22 +77,19 @@
 </template>
 
 <script>
-
 function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field]);
+  return Object.keys(fieldsError).some((field) => fieldsError[field]);
 }
 
 export default {
   data() {
     return {
       hasErrors,
-      form: this.$form.createForm(this, { name: 'horizontal_login' }),
-    }
+      form: this.$form.createForm(this, { name: "horizontal_login" }),
+    };
   },
 
-  components: {
-    
-  },
+  components: {},
 
   mounted() {
     this.$nextTick(() => {
@@ -90,36 +98,125 @@ export default {
     });
   },
 
-   methods: {
+  methods: {
     // Only show error after a field is touched.
     userNameError() {
       const { getFieldError, isFieldTouched } = this.form;
-      return isFieldTouched('userName') && getFieldError('userName');
+      return isFieldTouched("userName") && getFieldError("userName");
     },
     // Only show error after a field is touched.
     passwordError() {
       const { getFieldError, isFieldTouched } = this.form;
-      return isFieldTouched('password') && getFieldError('password');
+      return isFieldTouched("password") && getFieldError("password");
     },
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log('Received values of form: ', values);
+          console.log("Received values of form: ", values);
         }
       });
     },
   },
-}
+};
 </script>
 
 <style scoped>
-  .signuppagebg {
-    background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/forgetpwbg.png) no-repeat !important;
-    background-size: cover !important;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-  }
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+.signuppagebg {
+  background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/forgetpwbg.png)
+    no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.leftside {
+  background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/logo01.png)
+    no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 15%;
+  height: 20%;
+  top: 1rem;
+  left: 2rem;
+}
+
+.rightside {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.logintitle {
+  margin: 4vw 0 2vw 0;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.weltext {
+  display: block;
+  margin-bottom: 3vw;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.antdinput {
+  display: inline-block;
+  width: 46vw;
+  margin-left: 2vw;
+  margin-bottom: 3vw;
+}
+
+.rememberpw {
+  padding: 2vw;
+  float: left;
+}
+
+.forgetpw {
+  position: absolute;
+  right: -34vw;
+  margin-top: 2vw;
+}
+
+.antbtngroup {
+  width: 100%;
+  display: block;
+  padding: 20px;
+}
+
+.loginbtn {
+  width: 22vw;
+  height: 4vw;
+  font-size: 18px;
+  left: 2vw;
+  border-color: #4d4f5c;
+}
+
+.signupbtn {
+  width: 22vw;
+  height: 4vw;
+  font-size: 18px;
+  right: -3vw;
+}
+
+.footertext {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: #808080;
+  opacity: 0.4;
+  mix-blend-mode: difference;
+}
 </style>
