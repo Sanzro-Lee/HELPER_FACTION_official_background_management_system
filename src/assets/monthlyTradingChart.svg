@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="125.515" height="30" viewBox="0 0 125.515 30">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#54d8ff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a7a7ff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="组_340" data-name="组 340" transform="translate(-1439.931 -246)">
+    <path id="Chart_Grid" data-name="Chart Grid" d="M0,30V0H.114V29.886H25.483V23.068H.148v-.114H25.483V16.136H.148v-.114H25.483V9.2H.148V9.091H25.483V2.273H.148V2.159H25.483V0H25.6V2.159h24V0h.114V2.159H73.945V0h.114V2.159h23.89V0h.114V2.159h25.79v.114H98.062V9.091h25.79V9.2H98.062v6.818h25.79v.114H98.062v6.818h25.79v.114H98.062v6.818h25.824V0H124V30Zm97.949-.114V23.068H74.059v6.818Zm-24,0V23.068H49.714v6.818Zm-24.345,0V23.068h-24v6.818Zm48.349-6.932V16.136H74.059v6.818Zm-24,0V16.136H49.714v6.818Zm-24.345,0V16.136h-24v6.818Zm48.349-6.932V9.2H74.059v6.818Zm-24,0V9.2H49.714v6.818Zm-24.345,0V9.2h-24v6.818ZM97.949,9.091V2.273H74.059V9.091Zm-24,0V2.273H49.714V9.091Zm-24.345,0V2.273h-24V9.091Z" transform="translate(1441 246)" fill="#eaf0f4"/>
+    <g id="Total_Views_Graph" data-name="Total Views Graph" transform="translate(1440 255.773)">
+      <path id="Filled.Graph" d="M330,369.845V354.422s13.94,15.334,25.391,15.911c12.777-.13,12.881-7.961,24.109-12.248a61.54,61.54,0,0,1,24.445-3.6c7.862.224,13.623,2.284,24,2.89,13.9.682,25.048,9.388,25.914,9.857V373.6L330,373.613Z" transform="translate(-329.431 -353.806)" opacity="0.7" fill="url(#linear-gradient)"/>
+      <path id="Line.Graph" d="M312.953,278.425s14.374,15.617,25.608,15.763,15.075-9.2,24.1-12.353a63.992,63.992,0,0,1,24.187-3.472c7.828.183,14.93,2.715,24.182,2.9s19.832,5.484,25.681,9.66" transform="translate(-312.276 -277.725)" fill="none" stroke="#54d8ff" stroke-width="2"/>
+      <g id="Jun.Ellipse" transform="translate(123.841 12.727)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="May.Ellipse" transform="translate(97.913 2.955)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Apr.Ellipse" transform="translate(73.918 0)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Mar.Ellipse" transform="translate(49.696 3.523)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Feb.Ellipse" transform="translate(25.473 15.909)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Jan.Ellipse" transform="translate(0 0.114)" fill="#fff" stroke="#55d8fe" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+    </g>
+    <g id="Products_Sold_Graph" data-name="Products Sold Graph" transform="translate(1440 249.75)">
+      <path id="Filled.Graph-2" data-name="Filled.Graph" d="M330,322.74v-10.1s14.126,11.543,25.543,11.959c12.346-.4,14.648-8.156,24.264-11.959a61.631,61.631,0,0,1,24.279-3.815c7.866.224,14.684,3.648,23.975,4,16.391-1.414,24.754-8.561,25.862-11.546V326.5L330,326.507Z" transform="translate(-329.432 -300.677)" opacity="0.7" fill="url(#linear-gradient-2)"/>
+      <path id="Line.Graph-2" data-name="Line.Graph" d="M313,256.747s14.269,11.812,25.5,11.958,15.578-8.42,24.183-11.839a61.178,61.178,0,0,1,24.235-4c7.532.115,14.854,3.7,24.109,3.889s24.227-6.195,25.892-11.516" transform="translate(-312.432 -244.758)" fill="none" stroke="#a3a0fb" stroke-width="2"/>
+      <g id="Jun.Ellipse-2" data-name="Jun.Ellipse" transform="translate(123.841 0)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="May.Ellipse-2" data-name="May.Ellipse" transform="translate(98.032 11.477)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Apr.Ellipse-2" data-name="Apr.Ellipse" transform="translate(74.147 7.614)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Mar.Ellipse-2" data-name="Mar.Ellipse" transform="translate(49.695 11.477)" fill="#fff">
+        <path d="M 0.5675557851791382 0.9999957680702209 C 0.3291057944297791 0.9999957680702209 0.1351157873868942 0.8060057759284973 0.1351157873868942 0.5675557851791382 C 0.1351157873868942 0.3291057944297791 0.3291057944297791 0.1351157873868942 0.5675557851791382 0.1351157873868942 C 0.8060057759284973 0.1351157873868942 0.9999957680702209 0.3291057944297791 0.9999957680702209 0.5675557851791382 C 0.9999957680702209 0.8060057759284973 0.8060057759284973 0.9999957680702209 0.5675557851791382 0.9999957680702209 Z" stroke="none"/>
+        <path d="M 0.5675557851791382 -4.172325134277344e-06 C 0.8810057640075684 -4.172325134277344e-06 1.135115742683411 0.254105806350708 1.135115742683411 0.5675557851791382 C 1.135115742683411 0.8810057640075684 0.8810057640075684 1.135115742683411 0.5675557851791382 1.135115742683411 C 0.254105806350708 1.135115742683411 -4.172325134277344e-06 0.8810057640075684 -4.172325134277344e-06 0.5675557851791382 C -4.172325134277344e-06 0.254105806350708 0.254105806350708 -4.172325134277344e-06 0.5675557851791382 -4.172325134277344e-06 Z" stroke="none" fill="#a4a1fb"/>
+      </g>
+      <g id="Feb.Ellipse-2" data-name="Feb.Ellipse" transform="translate(25.47 23.295)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+      <g id="Jan.Ellipse-2" data-name="Jan.Ellipse" transform="translate(0 11.477)" fill="#fff" stroke="#a4a1fb" stroke-width="2">
+        <circle cx="0.568" cy="0.568" r="0.568" stroke="none"/>
+        <circle cx="0.568" cy="0.568" r="0.432" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,161 +1,62 @@
 <template>
-  <a-table :columns="columns" :data-source="data">
-    <a slot="name" slot-scope="text">{{ text }}</a>
-    <span slot="customTitle">
-      <a-icon type="smile-o" />Name
-    </span>
-    <span slot="tags" slot-scope="tags">
-      <a-tag
-        v-for="tag in tags"
-        :key="tag"
-        :color="
+  <a-layout-content class="content">
+    <a-table :columns="columns" :data-source="data" :style="{background: 'white', padding: '20px'}">
+      <a slot="name" slot-scope="text">{{ text }}</a>
+      <span slot="customTitle">
+        <a-icon type="smile-o" />Name
+      </span>
+      <span slot="tags" slot-scope="tags">
+        <a-tag
+          v-for="tag in tags"
+          :key="tag"
+          :color="
           tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'
         "
-      >{{ tag.toUpperCase() }}</a-tag>
-    </span>
-    <span slot="action" slot-scope="text, record">
-      <a>Invite 一 {{ record.name }}</a>
-      <a-divider type="vertical" />
-      <a>Delete</a>
-      <a-divider type="vertical" />
-      <a class="ant-dropdown-link">
-        More actions
-        <a-icon type="down" />
-      </a>
-    </span>
-  </a-table>
+        >{{ tag.toUpperCase() }}</a-tag>
+      </span>
+      <span slot="action" slot-scope="text, record">
+        <a>Invite 一 {{ record.name }}</a>
+        <a-divider type="vertical" />
+        <a>Delete</a>
+        <a-divider type="vertical" />
+        <a class="ant-dropdown-link">
+          More actions
+          <a-icon type="down" />
+        </a>
+      </span>
+    </a-table>
+  </a-layout-content>
 </template>
 
 <script>
-const columns = [
-  {
-    dataIndex: "name",
-    key: "name",
-    slots: { title: "customTitle" },
-    scopedSlots: { customRender: "name" },
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    scopedSlots: { customRender: "tags" },
-  },
-  {
-    title: "Action",
-    key: "action",
-    scopedSlots: { customRender: "action" },
-  },
-];
+import axios from "axios";
 
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "4",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "5",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "6",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "7",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "8",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "9",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "10",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "11",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "12",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
 
 export default {
   data() {
     return {
-      data,
-      columns,
+      data: [],
+      columns: [],
     };
+	},
+	mounted() {
+    let domain = "http://helperfaction.com/bgmanagement/api";
+    axios.get(`${domain}/data`).then((res) => {
+      this.data = res.data
+		});
+		
+		axios.get(`${domain}/columns`).then((res) => {
+      this.columns = res.data
+		});
   },
 };
 </script>
 
 <style scoped>
-.ant-table td {
-  white-space: nowrap;
+.content {
+  height: 100%;
+  margin-top: 30px;
+  padding: 20px;
+  overflow: auto;
 }
 </style>

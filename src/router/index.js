@@ -3,6 +3,7 @@ import Login from "../pages/Login.vue";
 import SignUp from "../pages/SignUp.vue";
 import ForgetPW from "../pages/ForgetPW.vue";
 import Index from "../pages/Index.vue";
+import OrderList from "../pages/OrderList.vue"
 
 const routes = [{
 		path: "/",
@@ -29,6 +30,11 @@ const routes = [{
 		name: "index page",
 		component: Index,
 	},
+	{
+		path: "/orderlist",
+		name: "order list page",
+		component: OrderList
+	}
 ];
 
 const router = new VueRouter({

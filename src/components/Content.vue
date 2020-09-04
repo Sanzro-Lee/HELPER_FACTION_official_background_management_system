@@ -1,12 +1,10 @@
 <template>
   <a-layout-content class="content">
-    <!-- <Table /> -->
     <div id="canvas"></div>
   </a-layout-content>
 </template>
 
 <script>
-// import Table from './components/Table';
 import { StackedArea } from "@antv/g2plot";
 import axios from "axios";
 
@@ -17,9 +15,7 @@ export default {
     };
   },
 
-  compoents: {
-    // Table
-  },
+  compoents: {},
 
   mounted() {
     let domain = "http://helperfaction.com/bgmanagement/api";
@@ -30,7 +26,7 @@ export default {
       const areaPlot = new StackedArea(document.getElementById("canvas"), {
         title: {
           visible: true,
-          text: "今日交易额",
+          text: "月度交易额",
         },
         legend: {
           position: "bottom-left",

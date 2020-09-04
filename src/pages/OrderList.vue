@@ -3,11 +3,12 @@
     <Sider />
     <a-layout>
       <Header />
-      <div class="contentTitle">总览</div>
-      <a-range-picker class="datePicker" @change="onChange" :locale="locale" />
-			<KingkongArea />
-      <Content />
-      <a-layout-footer style="textAlign: center">
+      <div class="contentTitle">订单列表</div>
+			<div class="datepickerdiv">
+				<a-range-picker class="datePicker" @change="onChange" :locale="locale" />
+			</div>
+      <Table class="tablecomponent" />
+      <a-layout-footer style="textAlign: center; bottom: 0;">
         Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
         2018
       </a-layout-footer>
@@ -17,23 +18,21 @@
 
 <script>
 import axios from "axios";
-import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
+import locale from "ant-design-vue/es/date-picker/locale/zh_CN";
 import Header from "../components/Header";
-import Sider from "../components/Sider.vue";
-import KingkongArea from '../components/KingkongArea'
-import Content from "../components/Content.vue";
+import Sider from "../components/Sider";
+import Table from "../components/Table";
 
 export default {
   data() {
     return {
-			locale,
-		};
+      locale,
+    };
   },
   components: {
     Header,
     Sider,
-		Content,
-		KingkongArea,
+    Table,
   },
   methods: {
     onChange(date, dateString) {
@@ -50,34 +49,25 @@ export default {
 </script>
 
 <style scoped>
-#components-layout-demo-custom-trigger .trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-#components-layout-demo-custom-trigger .trigger:hover {
-  color: #1890ff;
-}
-
-#components-layout-demo-custom-trigger .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 0 16px 0;
-}
-
 .contentTitle {
   font-size: 20px;
   margin-top: 1rem;
   margin-left: 1rem;
 }
 
+.datepickerdiv {
+	width: 100%;
+}
+
 .datePicker {
   width: 240px;
   position: absolute;
   top: 5rem;
-  right: 1rem;
+  right: 2vw;
+}
+
+.tablecomponent {
+  width: 96%;
+  margin-left: 1.8vw;
 }
 </style>
