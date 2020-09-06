@@ -3,7 +3,11 @@ import Login from "../pages/Login.vue";
 import SignUp from "../pages/SignUp.vue";
 import ForgetPW from "../pages/ForgetPW.vue";
 import Index from "../pages/Index.vue";
-import OrderList from "../pages/OrderList.vue"
+import OrderList from "../pages/OrderList.vue";
+import UserList from "../pages/UserList.vue";
+import MasterList from "../pages/MasterList.vue";
+import StaffList from "../pages/StaffList.vue";
+import AdList from "../pages/AdList.vue";
 
 const routes = [{
 		path: "/",
@@ -34,7 +38,27 @@ const routes = [{
 		path: "/orderlist",
 		name: "order list page",
 		component: OrderList
-	}
+	},
+	{
+		path: "/userlist",
+		name: "user list page",
+		component: UserList
+	},
+	{
+		path: "/masterlist",
+		name: "master list page",
+		component: MasterList
+	},
+	{
+		path: "/stafflist",
+		name: "staff list page",
+		component: StaffList
+	},
+	{
+		path: "/adlist",
+		name: "ad list page",
+		component: AdList
+	},
 ];
 
 const router = new VueRouter({
