@@ -3,31 +3,31 @@
     <div>
       <img class="leftsidelogo" src="../assets/header_logo.svg" />
     </div>
-    <a-menu class="antmenu" mode="inline" :default-selected-keys="['1']">
-      <a-menu-item key="1" @click="gotolink($event)">
+    <a-menu class="antmenu" mode="inline" :selectedKeys="[this.$route.path]">
+      <a-menu-item key="/index" @click="gotolink($event)">
         <a-icon type="home" />
         <span>总览</span>
       </a-menu-item>
-      <a-menu-item key="2" @click="gotolink($event)">
+      <a-menu-item key="/orderlist" @click="gotolink($event)">
         <a-icon type="container" theme="filled" />
         <span>订单列表</span>
       </a-menu-item>
-      <a-menu-item key="3" @click="gotolink($event)">
+      <a-menu-item key="/userlist" @click="gotolink($event)">
         <a-icon type="user" />
         <span>用户列表</span>
       </a-menu-item>
-      <a-menu-item key="4" @click="gotolink($event)">
+      <a-menu-item key="/masterlist" @click="gotolink($event)">
         <a-icon type="user" />
         <span>师傅列表</span>
       </a-menu-item>
-      <a-menu-item key="5" @click="gotolink($event)">
+      <a-menu-item key="/stafflist" @click="gotolink($event)">
         <a-icon type="user-add" />
         <span>员工列表</span>
       </a-menu-item>
-      <a-menu-item key="6" @click="gotolink($event)">
+      <!-- <a-menu-item key="/adlist" @click="gotolink($event)">
         <a-icon type="barcode" />
         <span>上传广告图</span>
-      </a-menu-item>
+      </a-menu-item> -->
     </a-menu>
   </a-layout-sider>
 </template>
@@ -38,44 +38,56 @@ export default {
     return {};
   },
   components: {},
-	props: {},
-	methods: {
-		gotolink(e) {
-			if(e.key == 1) {
-				this.$router.replace({
-					path: "/index",
-					// query: {
-					// 	xxx: 'xxx'
-					// }
-				});
-			}
-			if(e.key == 2) {
-				this.$router.replace({
-					path: "/orderlist",
-				});
-			}
-			if(e.key == 3) {
-				this.$router.replace({
-					path: "/userlist",
-				});
-			}
-			if(e.key == 4) {
-				this.$router.replace({
-					path: "/masterlist",
-				});
-			}
-			if(e.key == 5) {
-				this.$router.replace({
-					path: "/stafflist",
-				});
-			}
-			if(e.key == 6) {
-				this.$router.replace({
-					path: "/adlist",
-				});
-			}
-		}
-	}
+  props: {},
+  methods: {
+    gotolink(e) {
+      if (e.key == "/index") {
+        if (this.$router.history.current.path != "/index") {
+          this.$router.replace({
+            path: "/index",
+            // query: {
+            // 	xxx: 'xxx'
+            // }
+          });
+        }
+      }
+      if (e.key == "/orderlist") {
+        if (this.$router.history.current.path != "/orderlist") {
+          this.$router.replace({
+            path: "/orderlist",
+          });
+        }
+      }
+      if (e.key == "/userlist") {
+        if (this.$router.history.current.path != "/userlist") {
+          this.$router.replace({
+            path: "/userlist",
+          });
+        }
+      }
+      if (e.key == "/masterlist") {
+        if (this.$router.history.current.path != "/masterlist") {
+          this.$router.replace({
+            path: "/masterlist",
+          });
+        }
+      }
+      if (e.key == "/stafflist") {
+        if (this.$router.history.current.path != "/stafflist") {
+          this.$router.replace({
+            path: "/stafflist",
+          });
+        }
+      }
+      // if (e.key == "/adlist") {
+      //   if (this.$router.history.current.path != "/adlist") {
+      //     this.$router.replace({
+      //       path: "/adlist",
+      //     });
+      //   }
+      // }
+    },
+  },
 };
 </script>
 

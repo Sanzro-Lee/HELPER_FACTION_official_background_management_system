@@ -3,11 +3,9 @@
     <Sider />
     <a-layout>
       <Header />
-			<a-layout-content>
-      <div class="contentTitle">师傅列表</div>
-      <div>
-				<Table class="tablecomponent" />
-			</div>
+      <a-layout-content :style="{overflow: 'initial'}">
+        <div class="contentTitle">订单详情</div>
+        <Info class="contentInfo" />
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -17,7 +15,7 @@
 // import axios from "axios";
 import Header from "../components/Header";
 import Sider from "../components/Sider";
-import Table from "../components/Table";
+import Info from "../components/Info";
 
 export default {
   data() {
@@ -25,10 +23,14 @@ export default {
   },
   components: {
     Header,
-		Sider,
-    Table,
+    Sider,
+    Info,
   },
-  methods: {},
+  methods: {
+    onChange(date, dateString) {
+      console.log(date, dateString);
+    },
+  },
   mounted() {
     // let domain = "http://helperfaction.com/bgmanagement/api";
     // axios.get(`${domain}/news`).then((res) => {
@@ -45,8 +47,11 @@ export default {
   margin-left: 1rem;
 }
 
-.tablecomponent {
+.contentInfo {
   width: 96%;
+  background: white;
   margin-left: 1.8vw;
+  border-radius: 10px;
+  bottom: 0;
 }
 </style>

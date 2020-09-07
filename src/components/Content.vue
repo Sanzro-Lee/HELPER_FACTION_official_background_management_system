@@ -1,7 +1,7 @@
 <template>
-  <a-layout-content class="content">
+  <div class="content">
     <div id="canvas"></div>
-  </a-layout-content>
+  </div>
 </template>
 
 <script>
@@ -63,7 +63,7 @@ export default {
   margin: 24px 16px;
   padding: 24px;
   background: #fff;
-  min-height: 280px;
+  height: 75%;
   overflow: auto;
 }
 </style>

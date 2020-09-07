@@ -3,37 +3,39 @@
     <Sider />
     <a-layout>
       <Header />
-      <div class="contentTitle">总览</div>
-      <a-range-picker class="datePicker" @change="onChange" :locale="locale" />
-			<KingkongArea />
-      <Content />
-      <a-layout-footer style="textAlign: center">
-        Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
-        2018
-      </a-layout-footer>
+      <a-layout-content style="width: 100%">
+        <div class="contentTitle">总览</div>
+        <div style="width: 100%">
+          <a-range-picker class="datePicker" @change="onChange" :locale="locale" />
+        </div>
+        <KingkongArea />
+        <Content />
+      </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 
 <script>
 import axios from "axios";
-import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
+import locale from "ant-design-vue/es/date-picker/locale/zh_CN";
 import Header from "../components/Header";
-import Sider from "../components/Sider.vue";
-import KingkongArea from '../components/KingkongArea'
-import Content from "../components/Content.vue";
+import Sider from "../components/Sider";
+// import Footer from "../components/Footer";
+import KingkongArea from "../components/KingkongArea";
+import Content from "../components/Content";
 
 export default {
   data() {
     return {
-			locale,
-		};
+      locale,
+    };
   },
   components: {
     Header,
     Sider,
-		Content,
-		KingkongArea,
+    Content,
+    // Footer,
+    KingkongArea,
   },
   methods: {
     onChange(date, dateString) {
@@ -76,8 +78,8 @@ export default {
 
 .datePicker {
   width: 240px;
-  position: absolute;
-  top: 5rem;
+  float: right;
+  top: -20px;
   right: 1rem;
 }
 </style>

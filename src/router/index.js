@@ -7,7 +7,8 @@ import OrderList from "../pages/OrderList.vue";
 import UserList from "../pages/UserList.vue";
 import MasterList from "../pages/MasterList.vue";
 import StaffList from "../pages/StaffList.vue";
-import AdList from "../pages/AdList.vue";
+// import AdList from "../pages/AdList.vue";
+import OrderInfo from "../pages/OrderInfo.vue"
 
 const routes = [{
 		path: "/",
@@ -54,11 +55,16 @@ const routes = [{
 		name: "staff list page",
 		component: StaffList
 	},
+	// {
+	// 	path: "/adlist",
+	// 	name: "ad list page",
+	// 	component: AdList
+	// },
 	{
-		path: "/adlist",
-		name: "ad list page",
-		component: AdList
-	},
+		path: "/orderinfo",
+		name: "order info page",
+		component: OrderInfo
+	}
 ];
 
 const router = new VueRouter({

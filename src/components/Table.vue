@@ -31,23 +31,31 @@
 <script>
 import axios from "axios";
 
-
 export default {
+  name: "Table",
   data() {
     return {
       data: [],
       columns: [],
     };
-	},
-	mounted() {
+  },
+  mounted() {
     let domain = "http://helperfaction.com/bgmanagement/api";
     axios.get(`${domain}/data`).then((res) => {
-      this.data = res.data
-		});
-		
-		axios.get(`${domain}/columns`).then((res) => {
-      this.columns = res.data
-		});
+      this.data = res.data;
+    });
+
+    axios.get(`${domain}/columns`).then((res) => {
+      this.columns = res.data;
+    });
+  },
+  methods: {
+    handleParentClick(e) {
+			console.log(e)
+      this.$router.replace({
+        path: "/orderinfo",
+			});
+    },
   },
 };
 </script>

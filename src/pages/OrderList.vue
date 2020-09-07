@@ -3,15 +3,15 @@
     <Sider />
     <a-layout>
       <Header />
+			<a-layout-content>
       <div class="contentTitle">订单列表</div>
-			<div class="datepickerdiv">
+			<div style="width: 100%; height: 0;">
 				<a-range-picker class="datePicker" @change="onChange" :locale="locale" />
 			</div>
-      <Table class="tablecomponent" />
-      <a-layout-footer style="textAlign: center; bottom: 0;">
-        Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
-        2018
-      </a-layout-footer>
+			<div @click="gotoInfo()">
+				<Table class="tablecomponent" ref="Table" />
+			</div>
+			</a-layout-content>
     </a-layout>
   </a-layout>
 </template>
@@ -31,20 +31,23 @@ export default {
   },
   components: {
     Header,
-    Sider,
-    Table,
+		Sider,
+		Table,
   },
   methods: {
     onChange(date, dateString) {
       console.log(date, dateString);
-    },
+		},
+		gotoInfo() {
+			this.$refs.Table.handleParentClick("someid");
+		}
   },
   mounted() {
     let domain = "http://helperfaction.com/bgmanagement/api";
     axios.get(`${domain}/news`).then((res) => {
       return res;
-    });
-  },
+		});
+	},
 };
 </script>
 
@@ -55,15 +58,11 @@ export default {
   margin-left: 1rem;
 }
 
-.datepickerdiv {
-	width: 100%;
-}
-
 .datePicker {
   width: 240px;
-  position: absolute;
-  top: 5rem;
-  right: 2vw;
+  float: right;
+  top: -20px;
+  right: 1rem;
 }
 
 .tablecomponent {
