@@ -1,11 +1,9 @@
 <template>
   <a-layout-content class="content">
     <a-table :columns="columns" :data-source="data" :style="{background: 'white', padding: '20px'}">
-      <a slot="name" slot-scope="text">{{ text }}</a>
-      <span slot="customTitle">
-        <a-icon type="smile-o" />Name
-      </span>
-      <span slot="tags" slot-scope="tags">
+      <a slot="ordernum" slot-scope="text" @click="testclick">{{ text }}</a>
+      <span slot="customTitle">订单号</span>
+      <!-- <span slot="tags" slot-scope="tags">
         <a-tag
           v-for="tag in tags"
           :key="tag"
@@ -13,16 +11,17 @@
           tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'
         "
         >{{ tag.toUpperCase() }}</a-tag>
-      </span>
-      <span slot="action" slot-scope="text, record">
-        <a>Invite 一 {{ record.name }}</a>
-        <a-divider type="vertical" />
-        <a>Delete</a>
-        <a-divider type="vertical" />
-        <a class="ant-dropdown-link">
+      </span> -->
+      <!-- <span slot="action" slot-scope="text, record"> -->
+				<span slot="action">
+        <!-- <a>Invite 一 {{ record.ordernum }}</a> -->
+        <!-- <a-divider type="vertical" /> -->
+        <a style="color: #FA4646;">删除订单</a>
+        <!-- <a-divider type="vertical" /> -->
+        <!-- <a class="ant-dropdown-link">
           More actions
           <a-icon type="down" />
-        </a>
+        </a> -->
       </span>
     </a-table>
   </a-layout-content>
@@ -32,7 +31,7 @@
 import axios from "axios";
 
 export default {
-  name: "Table",
+  name: "OrderTable",
   data() {
     return {
       data: [],
@@ -50,12 +49,11 @@ export default {
     });
   },
   methods: {
-    handleParentClick(e) {
-			console.log(e)
-      this.$router.replace({
+		testclick() {
+			this.$router.replace({
         path: "/orderinfo",
 			});
-    },
+		}
   },
 };
 </script>

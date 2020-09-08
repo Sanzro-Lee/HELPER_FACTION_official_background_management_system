@@ -97,7 +97,7 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.$router.push({
+          this.$router.replace({
             path: "/index",
             // query: {
             // 	xxx: 'xxx'

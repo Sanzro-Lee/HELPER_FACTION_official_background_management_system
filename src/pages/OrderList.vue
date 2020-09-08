@@ -8,8 +8,8 @@
 			<div style="width: 100%; height: 0;">
 				<a-range-picker class="datePicker" @change="onChange" :locale="locale" />
 			</div>
-			<div @click="gotoInfo()">
-				<Table class="tablecomponent" ref="Table" />
+			<div>
+				<OrderTable class="tablecomponent" />
 			</div>
 			</a-layout-content>
     </a-layout>
@@ -21,7 +21,7 @@ import axios from "axios";
 import locale from "ant-design-vue/es/date-picker/locale/zh_CN";
 import Header from "../components/Header";
 import Sider from "../components/Sider";
-import Table from "../components/Table";
+import OrderTable from "../components/OrderTable";
 
 export default {
   data() {
@@ -32,15 +32,12 @@ export default {
   components: {
     Header,
 		Sider,
-		Table,
+		OrderTable,
   },
   methods: {
     onChange(date, dateString) {
       console.log(date, dateString);
 		},
-		gotoInfo() {
-			this.$refs.Table.handleParentClick("someid");
-		}
   },
   mounted() {
     let domain = "http://helperfaction.com/bgmanagement/api";

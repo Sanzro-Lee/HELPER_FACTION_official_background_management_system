@@ -5,6 +5,7 @@
       <Header />
       <a-layout-content :style="{overflow: 'initial'}">
         <div class="contentTitle">订单详情</div>
+				<a-icon class="closeinfo" type="close-circle" @click="goback" />
         <Info class="contentInfo" />
       </a-layout-content>
     </a-layout>
@@ -27,9 +28,11 @@ export default {
     Info,
   },
   methods: {
-    onChange(date, dateString) {
-      console.log(date, dateString);
-    },
+		goback() {
+			this.$router.replace({
+				path: "/orderlist",
+			});
+		}
   },
   mounted() {
     // let domain = "http://helperfaction.com/bgmanagement/api";
@@ -53,5 +56,12 @@ export default {
   margin-left: 1.8vw;
   border-radius: 10px;
   bottom: 0;
+}
+
+.closeinfo {
+	font-size: 30px;
+	float: right;
+	margin-right: 20px;
+	margin-top: -20px;
 }
 </style>

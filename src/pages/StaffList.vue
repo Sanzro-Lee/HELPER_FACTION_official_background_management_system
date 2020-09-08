@@ -6,7 +6,7 @@
 			<a-layout-content>
       <div class="contentTitle">员工列表</div>
       <div>
-				<Table class="tablecomponent" />
+				<!-- <OrderTable class="tablecomponent" /> -->
 			</div>
       </a-layout-content>
     </a-layout>
@@ -17,7 +17,7 @@
 // import axios from "axios";
 import Header from "../components/Header";
 import Sider from "../components/Sider";
-import Table from "../components/Table";
+// import OrderTable from "../components/OrderTable";
 
 export default {
   data() {
@@ -26,7 +26,7 @@ export default {
   components: {
     Header,
 		Sider,
-    Table,
+    // OrderTable,
   },
   methods: {},
   mounted() {

@@ -31,7 +31,10 @@
       </a-descriptions-item>
       <a-descriptions-item label="订单号">REX28917734BNGE201</a-descriptions-item>
     </a-descriptions>
-    <a-carousel :after-change="onChange" style="width: 300px; float: right; margin-top: -230px; margin-right: 50px">
+    <a-carousel
+      :after-change="onChange"
+      style="width: 300px; float: right; margin-top: -230px; margin-right: 50px"
+    >
       <div>
         <h3>1</h3>
       </div>
@@ -46,12 +49,8 @@
       </div>
     </a-carousel>
     <div style="padding: 30px;">
-      <a-table
-        :columns="columns"
-        :data-source="data"
-        :style="{ height: '100%', overflow: 'auto' }"
-      >
-        <a slot="name" slot-scope="text">{{ text }}</a>
+      <a-table :columns="columns" :data-source="data" :style="{ height: '100%', overflow: 'auto' }">
+        <a slot="ordertype" slot-scope="text">{{ text }}</a>
       </a-table>
     </div>
     <div style="width: 100%;"></div>
@@ -61,38 +60,44 @@
 <script>
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    scopedSlots: { customRender: "name" },
+    title: "订单种类",
+    dataIndex: "ordertype",
+    key: "ordertype",
+    // scopedSlots: { customRender: "ordertpye" },
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-    width: 80,
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address 1",
+    title: "订单内容",
+    dataIndex: "ordercontent",
+    key: "ordercontent",
+    width: 300,
     ellipsis: true,
+  },
+  {
+    title: "订单金额",
+    dataIndex: "price",
+    key: "price",
+  },
+  {
+    title: "订单评分",
+    dataIndex: "orderrate",
+    key: "orderrate",
   },
 ];
 const data = [
   {
     key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park, New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    ordertype: "居家维修",
+    ordercontent: "将发霉的墙砸掉重新砌起来",
+    price: "￥283",
+    orderrate: 3.5,
   },
 ];
 export default {
   data() {
     return {
       data,
-      columns,
+			columns,
+			orderrate: 2,
     };
   },
   components: {},
