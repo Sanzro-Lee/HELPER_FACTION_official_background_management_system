@@ -2,43 +2,38 @@
   <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
     <Sider />
     <a-layout>
-      <Header />
+      <Header :show="parentsshow" />
       <a-layout-content :style="{overflow: 'initial'}">
-        <div class="contentTitle">订单详情</div>
+        <div class="contentTitle">师傅详情</div>
 				<a-icon class="closeinfo" type="close-circle" @click="goback" />
-        <Info class="contentInfo" />
+        <MasterInfoDetail class="contentInfo" />
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 
 <script>
-// import axios from "axios";
-import Header from "../components/Header";
-import Sider from "../components/Sider";
-import Info from "../components/Info";
+import Header from "../../components/Header";
+import Sider from "../../components/Sider";
+import MasterInfoDetail from "../../components/Master/MasterInfoDetail";
 
 export default {
   data() {
-    return {};
+    return {
+			parentsshow: "none",
+		};
   },
   components: {
     Header,
     Sider,
-    Info,
+    MasterInfoDetail,
   },
   methods: {
 		goback() {
 			this.$router.replace({
-				path: "/orderlist",
+				path: "/masterlist",
 			});
 		}
-  },
-  mounted() {
-    // let domain = "http://helperfaction.com/bgmanagement/api";
-    // axios.get(`${domain}/news`).then((res) => {
-    //   return res;
-    // });
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <a-layout-content class="content">
     <a-table :columns="columns" :data-source="data" :style="{background: 'white', padding: '20px'}">
-      <a slot="ordernum" slot-scope="text" @click="testclick">{{ text }}</a>
+      <a slot="ordernum" slot-scope="text" @click="gotoinfo">{{ text }}</a>
       <span slot="customTitle">订单号</span>
       <!-- <span slot="tags" slot-scope="tags">
         <a-tag
@@ -40,16 +40,16 @@ export default {
   },
   mounted() {
     let domain = "http://helperfaction.com/bgmanagement/api";
-    axios.get(`${domain}/data`).then((res) => {
+    axios.get(`${domain}/orderlistdata`).then((res) => {
       this.data = res.data;
     });
 
-    axios.get(`${domain}/columns`).then((res) => {
+    axios.get(`${domain}/orderlistcolumns`).then((res) => {
       this.columns = res.data;
     });
   },
   methods: {
-		testclick() {
+		gotoinfo() {
 			this.$router.replace({
         path: "/orderinfo",
 			});

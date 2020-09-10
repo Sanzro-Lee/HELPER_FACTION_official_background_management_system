@@ -2,7 +2,7 @@
   <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
     <Sider />
     <a-layout>
-      <Header />
+      <Header :msg="parentsmsg" />
 			<a-layout-content>
       <div class="contentTitle">订单列表</div>
 			<div style="width: 100%; height: 0;">
@@ -19,14 +19,15 @@
 <script>
 import axios from "axios";
 import locale from "ant-design-vue/es/date-picker/locale/zh_CN";
-import Header from "../components/Header";
-import Sider from "../components/Sider";
-import OrderTable from "../components/OrderTable";
+import Header from "../../components/Header";
+import Sider from "../../components/Sider";
+import OrderTable from "../../components/Order/OrderTable";
 
 export default {
   data() {
     return {
-      locale,
+			locale,
+			parentsmsg: "请输入订单号"
     };
   },
   components: {

@@ -2,51 +2,47 @@
   <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
     <Sider />
     <a-layout>
-      <Header />
+      <Header :show="parentsshow" />
       <a-layout-content style="width: 100%">
         <div class="contentTitle">总览</div>
         <div style="width: 100%">
           <a-range-picker class="datePicker" @change="onChange" :locale="locale" />
         </div>
-        <KingkongArea />
-        <Content />
+        <KingkongArea @clickBlock="clickhhh" />
+        <Content ref="contentblock" />
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 
 <script>
-import axios from "axios";
 import locale from "ant-design-vue/es/date-picker/locale/zh_CN";
 import Header from "../components/Header";
 import Sider from "../components/Sider";
-// import Footer from "../components/Footer";
 import KingkongArea from "../components/KingkongArea";
 import Content from "../components/Content";
 
 export default {
   data() {
     return {
-      locale,
+			locale,
+			parentsshow: "none",
     };
   },
   components: {
     Header,
     Sider,
     Content,
-    // Footer,
     KingkongArea,
   },
   methods: {
     onChange(date, dateString) {
       console.log(date, dateString);
-    },
-  },
-  mounted() {
-    let domain = "http://helperfaction.com/bgmanagement/api";
-    axios.get(`${domain}/news`).then((res) => {
-      return res;
-    });
+		},
+		// 点击 KingkongArae 内部的 clickBlock 方法后传值到 Content 的 contentClick 方法内。
+		clickhhh (e) {
+			this.$refs.contentblock.contentClick(e)
+		}
   },
 };
 </script>

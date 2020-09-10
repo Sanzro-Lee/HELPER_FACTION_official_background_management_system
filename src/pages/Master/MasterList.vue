@@ -2,11 +2,11 @@
   <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
     <Sider />
     <a-layout>
-      <Header />
+      <Header :msg="parentsmsg" />
 			<a-layout-content>
       <div class="contentTitle">师傅列表</div>
       <div>
-				<!-- <OrderTable class="tablecomponent" /> -->
+				<MasterTable class="tablecomponent" />
 			</div>
       </a-layout-content>
     </a-layout>
@@ -14,26 +14,20 @@
 </template>
 
 <script>
-// import axios from "axios";
-import Header from "../components/Header";
-import Sider from "../components/Sider";
-// import OrderTable from "../components/OrderTable";
+import Header from "../../components/Header";
+import Sider from "../../components/Sider";
+import MasterTable from "../../components/Master/MasterTable";
 
 export default {
   data() {
-    return {};
+    return {
+			parentsmsg: "请输入师傅名或手机号码"
+		};
   },
   components: {
     Header,
 		Sider,
-    // OrderTable,
-  },
-  methods: {},
-  mounted() {
-    // let domain = "http://helperfaction.com/bgmanagement/api";
-    // axios.get(`${domain}/news`).then((res) => {
-    //   return res;
-    // });
+    MasterTable,
   },
 };
 </script>

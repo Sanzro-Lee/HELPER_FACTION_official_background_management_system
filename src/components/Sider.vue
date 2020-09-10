@@ -37,13 +37,11 @@ export default {
   data() {
     return {};
   },
-  components: {},
-  props: {},
   methods: {
     gotolink(e) {
       if (e.key == "/index") {
         if (this.$router.history.current.path != "/index") {
-          this.$router.replace({
+          this.$router.push({
             path: "/index",
             // query: {
             // 	xxx: 'xxx'
