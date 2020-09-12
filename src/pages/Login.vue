@@ -17,6 +17,7 @@
             ]"
             placeholder="请输入用户名"
             class="antdinput"
+						size="large"
           >
             <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
           </a-input>
@@ -33,6 +34,7 @@
             type="password"
             placeholder="请输入密码"
             class="antdinput"
+						size="large"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
           </a-input>
@@ -70,7 +72,7 @@ function hasErrors(fieldsError) {
 export default {
   data() {
     return {
-      hasErrors,
+			hasErrors,
       form: this.$form.createForm(this, { name: "horizontal_login" }),
     };
   },
@@ -169,7 +171,7 @@ export default {
   display: inline-block;
   width: 46vw;
   margin-left: 2vw;
-  margin-bottom: 3vw;
+  margin-bottom: 40px;
 }
 
 .rememberpw {
@@ -178,8 +180,8 @@ export default {
 }
 
 .forgetpw {
-  position: absolute;
-  right: -34vw;
+  position: fixed;
+  right: 2vw;
   margin-top: 2vw;
 }
 
@@ -191,16 +193,17 @@ export default {
 
 .loginbtn {
   width: 22vw;
-  height: 4vw;
+  height: 50px;
   font-size: 18px;
   left: 2vw;
 }
 
 .signupbtn {
+	position: fixed;
   width: 22vw;
-  height: 4vw;
+  height: 50px;
   font-size: 18px;
-  right: -3vw;
+  right: 2vw;
 }
 
 .footertext {

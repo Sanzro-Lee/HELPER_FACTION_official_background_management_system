@@ -17,6 +17,7 @@
             ]"
             placeholder="请输入用户名"
             class="antdinput"
+						size="large"
           >
             <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
           </a-input>
@@ -33,12 +34,13 @@
             type="password"
             placeholder="请输入密码"
             class="antdinput"
+						size="large"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
         <a-form-item>
-          <a-input class="antdinput" type="password" placeholder="请在输入一次上面的密码">
+          <a-input class="antdinput" type="password" size="large" placeholder="请在输入一次上面的密码">
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
@@ -46,7 +48,7 @@
           :validate-status="userNameError() ? 'error' : ''"
           :help="userNameError() || ''"
         >
-          <a-input class="antdinput" placeholder="请输入手机号码">
+          <a-input class="antdinput" size="large" placeholder="请输入手机号码">
             <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
@@ -54,7 +56,7 @@
           :validate-status="userNameError() ? 'error' : ''"
           :help="userNameError() || ''"
         >
-          <a-input class="antdinput" placeholder="收到的验证码">
+          <a-input class="antdinput" size="large" placeholder="收到的验证码">
             <a-icon slot="prefix" type="message" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
@@ -175,7 +177,7 @@ export default {
   display: inline-block;
   width: 46vw;
   margin-left: 2vw;
-  margin-bottom: 3vw;
+  margin-bottom: 40px;
 }
 
 .rememberpw {
@@ -197,17 +199,18 @@ export default {
 
 .loginbtn {
   width: 22vw;
-  height: 4vw;
+  height: 50px;
   font-size: 18px;
   left: 2vw;
   border-color: #4d4f5c;
 }
 
 .signupbtn {
+	position: fixed;
   width: 22vw;
-  height: 4vw;
+  height: 50px;
   font-size: 18px;
-  right: -3vw;
+  right: 2vw;
 }
 
 .footertext {
