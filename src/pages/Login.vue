@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
 }
@@ -96,16 +98,23 @@ export default {
       return isFieldTouched("password") && getFieldError("password");
     },
     handleSubmit(e) {
-      e.preventDefault();
+			e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.$router.replace({
-            path: "/index",
-            // query: {
-            // 	xxx: 'xxx'
-            // }
-          });
-          console.log("Received values of form: ", values);
+					let domain = "http://127.0.0.1:8000/";
+					axios.post(`${domain}findstudent/`, {
+						id: Number(values.userName),
+						name: values.password
+					}).then((res) => {
+						if(res.data.length != 0) {
+							this.$router.replace({
+								path: "/index",
+								// query: {
+								// 	xxx: 'xxx'
+								// }
+							});
+						}
+					})
         }
       });
     },
