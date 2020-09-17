@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { axiosFun } from "../utils/Requestdata.js"
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -101,20 +101,12 @@ export default {
 			e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-					let domain = "http://127.0.0.1:8000/";
-					axios.post(`${domain}findstudent/`, {
+					let pagerouter = this.$router
+					let pagemessage = this.$message
+					axiosFun("findstudent/", {
 						id: Number(values.userName),
 						name: values.password
-					}).then((res) => {
-						if(res.data.length != 0) {
-							this.$router.replace({
-								path: "/index",
-								// query: {
-								// 	xxx: 'xxx'
-								// }
-							});
-						}
-					})
+					}, pagerouter, "/index", pagemessage)
         }
       });
     },
