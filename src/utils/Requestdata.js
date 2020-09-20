@@ -3,11 +3,9 @@ import axios from "axios";
 let domain = "http://127.0.0.1:8000/";
 
 function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
-	console.log(params)
-	console.log(replacepath)
   axios.post(domain + apiname, params,)
     .then((res) => {
-      if (res.data.length != 0) {
+			if (res.data.length != 0) {
         pagerouter.replace({
           path: replacepath,
           // query: {
@@ -22,12 +20,11 @@ function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
 }
 
 function signupFun(apiname, params, pagerouter, replacepath, pagemessage) {
-	console.log(params)
-	console.log(replacepath)
   axios.post(domain + apiname, params,)
     .then((res) => {
-			console.log(res)
-      if (res.msg != 0) {
+			if (res.data == -1) {
+				pagemessage.error("注册失败，该手机号码已存在")
+			} else if (res.msg != 0) {
         pagerouter.replace({
           path: replacepath,
           // query: {
@@ -35,7 +32,7 @@ function signupFun(apiname, params, pagerouter, replacepath, pagemessage) {
           // }
 				});
 				pagemessage.success("注册成功")
-      } else {
+			} else {
 				pagemessage.error("注册失败，请重新输入信息")
 			}
     });

@@ -26,7 +26,7 @@
           :validate-status="passwordError() ? 'error' : ''"
           :help="passwordError() || ''"
         >
-          <a-input
+          <a-input-password
             v-decorator="[
               'password',
               { rules: [{ required: true, message: '啊咧？密码咧？' }] },
@@ -37,7 +37,7 @@
 						size="large"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
-          </a-input>
+          </a-input-password>
         </a-form-item>
         <a-form-item :style="{ display: 'block' }">
           <div class="rememberpw">
@@ -175,7 +175,7 @@ export default {
 }
 
 .rememberpw {
-  padding: 2vw 0 2vw 0;
+  padding: 1vw 0 2vw 0;
   float: left;
 }
 

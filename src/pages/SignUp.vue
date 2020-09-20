@@ -42,7 +42,7 @@
           :validate-status="passwordError() ? 'error' : ''"
           :help="passwordError() || ''"
         >
-          <a-input
+          <a-input-password
             v-decorator="[
               'password',
               { rules: [{ required: true, message: '啊咧？密码咧？' }] },
@@ -53,13 +53,13 @@
             size="large"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
-          </a-input>
+          </a-input-password>
         </a-form-item>
         <a-form-item
 					:validate-status="secondPasswordError() ? 'error' : ''"
 					:help="secondPasswordError() || ''"
 				>
-          <a-input
+          <a-input-password
             v-decorator="[
 						'secondPassword',
 						{ rules: [{ required: true, message: '啊咧？密码咧？'}]}
@@ -70,7 +70,7 @@
             placeholder="请在输入一次上面的密码"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
-          </a-input>
+          </a-input-password>
         </a-form-item>
         <a-form-item class="antbtngrounp">
           <a-button
@@ -133,9 +133,11 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
-        if (values.password != values.secondPassword) {
-          this.$message.error("注册失败，请输入相同的密码");
-        } else {
+				if(values.phoneNum.length < 11) {
+					return this.$message.error("你输入的手机号码不足11位")
+				} else if (values.password != values.secondPassword) {
+					return this.$message.error("注册失败，请输入相同的密码")
+				} else {
           if (!err) {
             let pagerouter = this.$router;
 						let pagemessage = this.$message;
