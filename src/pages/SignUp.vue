@@ -5,7 +5,7 @@
     <div class="rightside">
       <h1 class="logintitle">叫到帮</h1>
       <span class="weltext">欢迎回来！请你注册你的账号</span>
-      <a-form layout="inline" :form="form" @submit="handleSubmit">
+      <a-form layout="inline" :form="form" @submit="handleSubmit" :style="{marginLeft: '2vw'}">
         <a-form-item
           :validate-status="userNameError() ? 'error' : ''"
           :help="userNameError() || ''"
@@ -17,9 +17,25 @@
             ]"
             placeholder="请输入用户名"
             class="antdinput"
-						size="large"
+            size="large"
           >
             <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
+          </a-input>
+        </a-form-item>
+				<a-form-item
+          :validate-status="phoneNumError() ? 'error' : ''"
+          :help="phoneNumError() || ''"
+        >
+          <a-input
+            v-decorator="[
+              'phoneNum',
+              { rules: [{ required: true, message: '啊咧？手机号码咧？' }] },
+            ]"
+            placeholder="请输入手机号码"
+            class="antdinput"
+            size="large"
+          >
+            <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
         <a-form-item
@@ -34,30 +50,26 @@
             type="password"
             placeholder="请输入密码"
             class="antdinput"
-						size="large"
+            size="large"
           >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
-        <a-form-item>
-          <a-input class="antdinput" type="password" size="large" placeholder="请在输入一次上面的密码">
+        <a-form-item
+					:validate-status="secondPasswordError() ? 'error' : ''"
+					:help="secondPasswordError() || ''"
+				>
+          <a-input
+            v-decorator="[
+						'secondPassword',
+						{ rules: [{ required: true, message: '啊咧？密码咧？'}]}
+					]"
+            type="password"
+            class="antdinput"
+            size="large"
+            placeholder="请在输入一次上面的密码"
+          >
             <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
-          </a-input>
-        </a-form-item>
-        <a-form-item
-          :validate-status="userNameError() ? 'error' : ''"
-          :help="userNameError() || ''"
-        >
-          <a-input class="antdinput" size="large" placeholder="请输入手机号码">
-            <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
-          </a-input>
-        </a-form-item>
-        <a-form-item
-          :validate-status="userNameError() ? 'error' : ''"
-          :help="userNameError() || ''"
-        >
-          <a-input class="antdinput" size="large" placeholder="收到的验证码">
-            <a-icon slot="prefix" type="message" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
         <a-form-item class="antbtngrounp">
@@ -79,6 +91,8 @@
 </template>
 
 <script>
+import { signupFun } from "../utils/Requestdata.js";
+
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
 }
@@ -90,32 +104,54 @@ export default {
       form: this.$form.createForm(this, { name: "horizontal_login" }),
     };
   },
-
-  components: {},
-
   mounted() {
     this.$nextTick(() => {
       // To disabled submit button at the beginning.
       this.form.validateFields();
     });
   },
-
   methods: {
     // Only show error after a field is touched.
     userNameError() {
-      const { getFieldError, isFieldTouched } = this.form;
+			const { getFieldError, isFieldTouched } = this.form;
       return isFieldTouched("userName") && getFieldError("userName");
-    },
-    // Only show error after a field is touched.
+		},
+		phoneNumError() {
+			const { getFieldError, isFieldTouched } = this.form;
+      return isFieldTouched("phoneNum") && getFieldError("phoneNum");
+		},
     passwordError() {
       const { getFieldError, isFieldTouched } = this.form;
       return isFieldTouched("password") && getFieldError("password");
     },
+    secondPasswordError() {
+      const { getFieldError, isFieldTouched } = this.form;
+      return (
+        isFieldTouched("secondPassword") && getFieldError("secondPassword")
+      );
+    },
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
-        if (!err) {
-          console.log("Received values of form: ", values);
+        if (values.password != values.secondPassword) {
+          this.$message.error("注册失败，请输入相同的密码");
+        } else {
+          if (!err) {
+            let pagerouter = this.$router;
+						let pagemessage = this.$message;
+						console.log(values)
+            signupFun(
+              "createstaff/",
+              {
+								id: values.phoneNum,
+                username: values.userName,
+                password: values.password,
+              },
+              pagerouter,
+              "/login",
+              pagemessage
+            );
+          }
         }
       });
     },
@@ -176,8 +212,7 @@ export default {
 .antdinput {
   display: inline-block;
   width: 46vw;
-  margin-left: 2vw;
-  margin-bottom: 40px;
+	margin-bottom: 30px;
 }
 
 .rememberpw {
@@ -194,19 +229,17 @@ export default {
 .antbtngroup {
   width: 100%;
   display: block;
-  padding: 20px;
 }
 
 .loginbtn {
   width: 22vw;
   height: 50px;
   font-size: 18px;
-  left: 2vw;
   border-color: #4d4f5c;
 }
 
 .signupbtn {
-	position: fixed;
+  position: fixed;
   width: 22vw;
   height: 50px;
   font-size: 18px;

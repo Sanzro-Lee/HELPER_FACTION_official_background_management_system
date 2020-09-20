@@ -5,7 +5,7 @@
     <div class="rightside">
       <h1 class="logintitle">叫到帮</h1>
       <span class="weltext">欢迎回来！请你登录你的账号</span>
-      <a-form layout="inline" :form="form" @submit="handleSubmit">
+      <a-form layout="inline" :form="form" @submit="handleSubmit" :style="{marginLeft: '2vw'}">
         <a-form-item
           :validate-status="userNameError() ? 'error' : ''"
           :help="userNameError() || ''"
@@ -44,7 +44,7 @@
             <a-switch default-checked @change="onChange" />
             <span :style="{ marginLeft: '20px' }">记住密码</span>
           </div>
-          <router-link class="forgetpw" to="/forgetpw">忘记密码</router-link>
+          <!-- <router-link class="forgetpw" to="/forgetpw">忘记密码</router-link> -->
         </a-form-item>
         <a-form-item class="antbtngrounp">
           <a-button
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { axiosFun } from "../utils/Requestdata.js"
+import { loginFun } from "../utils/Requestdata.js"
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -103,11 +103,11 @@ export default {
         if (!err) {
 					let pagerouter = this.$router
 					let pagemessage = this.$message
-					axiosFun("findstudent/", {
-						id: Number(values.userName),
-						name: values.password
+					loginFun("findstaff/", {
+						username: values.userName,
+						password: values.password
 					}, pagerouter, "/index", pagemessage)
-        }
+				}
       });
     },
     // checkbox remember password
@@ -171,12 +171,11 @@ export default {
 .antdinput {
   display: inline-block;
   width: 46vw;
-  margin-left: 2vw;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .rememberpw {
-  padding: 2vw;
+  padding: 2vw 0 2vw 0;
   float: left;
 }
 
@@ -196,7 +195,6 @@ export default {
   width: 22vw;
   height: 50px;
   font-size: 18px;
-  left: 2vw;
 }
 
 .signupbtn {
