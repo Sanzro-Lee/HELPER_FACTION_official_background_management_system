@@ -30,11 +30,11 @@ export default {
   },
   methods: {
 		goback() {
-			this.$router.replace({
+			this.$router.push({
 				path: "/masterlist",
 			});
 		}
-  },
+	},
 };
 </script>
 

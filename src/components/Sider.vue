@@ -43,44 +43,41 @@ export default {
         if (this.$router.history.current.path != "/index") {
           this.$router.push({
             path: "/index",
-            // query: {
-            // 	xxx: 'xxx'
-            // }
           });
         }
       }
       if (e.key == "/orderlist") {
         if (this.$router.history.current.path != "/orderlist") {
-          this.$router.replace({
-            path: "/orderlist",
+          this.$router.push({
+						path: "/orderlist",
           });
         }
       }
       if (e.key == "/userlist") {
         if (this.$router.history.current.path != "/userlist") {
-          this.$router.replace({
-            path: "/userlist",
+          this.$router.push({
+						path: "/userlist",
           });
         }
       }
       if (e.key == "/masterlist") {
         if (this.$router.history.current.path != "/masterlist") {
-          this.$router.replace({
-            path: "/masterlist",
+          this.$router.push({
+						path: "/masterlist",
           });
         }
       }
       if (e.key == "/stafflist") {
         if (this.$router.history.current.path != "/stafflist") {
-          this.$router.replace({
-            path: "/stafflist",
+          this.$router.push({
+						path: "/stafflist",
           });
         }
       }
       // if (e.key == "/adlist") {
       //   if (this.$router.history.current.path != "/adlist") {
-      //     this.$router.replace({
-      //       path: "/adlist",
+      //     this.$router.push({
+			//       path: "/adlist",
       //     });
       //   }
       // }

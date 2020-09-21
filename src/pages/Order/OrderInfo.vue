@@ -31,16 +31,10 @@ export default {
   },
   methods: {
 		goback() {
-			this.$router.replace({
+			this.$router.push({
 				path: "/orderlist",
 			});
 		}
-  },
-  mounted() {
-    // let domain = "http://helperfaction.com/bgmanagement/api";
-    // axios.get(`${domain}/news`).then((res) => {
-    //   return res;
-    // });
   },
 };
 </script>

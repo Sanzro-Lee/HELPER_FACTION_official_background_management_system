@@ -34,6 +34,7 @@
             placeholder="请输入手机号码"
             class="antdinput"
             size="large"
+						type="number"
           >
             <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
           </a-input>
@@ -92,6 +93,8 @@
 
 <script>
 import { signupFun } from "../utils/Requestdata.js";
+import { checkStrong } from "../utils/CheckpassStrong.js";
+import md5 from "js-md5";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -133,27 +136,31 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
-				if(values.phoneNum.length < 11) {
-					return this.$message.error("你输入的手机号码不足11位")
+				if(values.phoneNum.length != 11) {
+					return this.$message.error("你输入的手机号码不是11位")
 				} else if (values.password != values.secondPassword) {
 					return this.$message.error("注册失败，请输入相同的密码")
 				} else {
-          if (!err) {
+					let strength = checkStrong(values.password)
+          if (!err && strength == 4) {
             let pagerouter = this.$router;
 						let pagemessage = this.$message;
-						console.log(values)
+						// md5 加密盐，开发环境的盐应与生产环境的盐不同
+						let salt = "kolin"
             signupFun(
               "createstaff/",
               {
 								id: values.phoneNum,
                 username: values.userName,
-                password: values.password,
+                password: md5(values.password + salt),
               },
               pagerouter,
               "/login",
               pagemessage
             );
-          }
+          } else {
+						return this.$message.error("注册失败，请输入强度较高的密码（至少12位，并包括一个英文标点符号和一个英文字母和数字）")
+					}
         }
       });
     },

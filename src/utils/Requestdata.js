@@ -2,15 +2,12 @@ import axios from "axios";
 
 let domain = "http://127.0.0.1:8000/";
 
-function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
-  axios.post(domain + apiname, params,)
+function loginFun(apiname, param, pagerouter, replacepath, pagemessage) {
+  axios.post(domain + apiname, param,)
     .then((res) => {
 			if (res.data.length != 0) {
-        pagerouter.replace({
-          path: replacepath,
-          // query: {
-          // 	xxx: 'xxx'
-          // }
+        pagerouter.push({
+					path: replacepath
 				});
 				pagemessage.success("登录成功")
       } else {
@@ -25,11 +22,8 @@ function signupFun(apiname, params, pagerouter, replacepath, pagemessage) {
 			if (res.data == -1) {
 				pagemessage.error("注册失败，该手机号码已存在")
 			} else if (res.msg != 0) {
-        pagerouter.replace({
-          path: replacepath,
-          // query: {
-          // 	xxx: 'xxx'
-          // }
+        pagerouter.push({
+          path: replacepath
 				});
 				pagemessage.success("注册成功")
 			} else {

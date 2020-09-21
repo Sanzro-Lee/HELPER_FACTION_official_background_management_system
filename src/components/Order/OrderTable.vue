@@ -11,9 +11,9 @@
           tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'
         "
         >{{ tag.toUpperCase() }}</a-tag>
-      </span> -->
+      </span>-->
       <!-- <span slot="action" slot-scope="text, record"> -->
-				<span slot="action">
+      <span slot="action">
         <!-- <a>Invite 一 {{ record.ordernum }}</a> -->
         <!-- <a-divider type="vertical" /> -->
         <a style="color: #FA4646;">删除订单</a>
@@ -21,7 +21,7 @@
         <!-- <a class="ant-dropdown-link">
           More actions
           <a-icon type="down" />
-        </a> -->
+        </a>-->
       </span>
     </a-table>
   </a-layout-content>
@@ -49,11 +49,15 @@ export default {
     });
   },
   methods: {
-		gotoinfo() {
-			this.$router.replace({
+    gotoinfo() {
+			let name = this.$route.query.username
+      this.$router.push({
         path: "/orderinfo",
-			});
-		}
+        query: {
+          username: name,
+        },
+      });
+    },
   },
 };
 </script>

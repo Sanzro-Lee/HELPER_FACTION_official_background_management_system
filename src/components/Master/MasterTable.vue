@@ -33,7 +33,7 @@ export default {
   },
   methods: {
 		gotoinfo() {
-			this.$router.replace({
+			this.$router.push({
         path: "/masterinfo",
 			});
 		}

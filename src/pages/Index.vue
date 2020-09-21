@@ -21,7 +21,6 @@ import Header from "../components/Header";
 import Sider from "../components/Sider";
 import KingkongArea from "../components/KingkongArea";
 import Content from "../components/Content";
-// import axios from "axios";
 
 export default {
   data() {
@@ -44,12 +43,6 @@ export default {
 		clickhhh (e) {
 			this.$refs.contentblock.contentClick(e)
 		}
-	},
-	mounted() {
-		// let domain = "http://127.0.0.1:8000/";
-		// axios.get(`${domain}`).then((res) => {
-    //   console.log(res.data)
-    // });
 	},
 };
 </script>

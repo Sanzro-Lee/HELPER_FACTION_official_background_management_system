@@ -28,7 +28,7 @@ export default {
     Header,
 		Sider,
     StaffTable,
-  },
+	},
 };
 </script>
 

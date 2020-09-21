@@ -14,7 +14,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 import Header from "../../components/Header";
 import Sider from "../../components/Sider";
 import UserTable from "../../components/User/UserTable";
@@ -29,13 +28,6 @@ export default {
 		Header,
     Sider,
     UserTable,
-  },
-  methods: {},
-  mounted() {
-    // let domain = "http://helperfaction.com/bgmanagement/api";
-    // axios.get(`${domain}/news`).then((res) => {
-    //   return res;
-    // });
   },
 };
 </script>
