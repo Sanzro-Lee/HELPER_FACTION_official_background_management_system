@@ -72,6 +72,8 @@ import { loginFun } from "../utils/Requestdata.js";
 import md5 from "js-md5";
 // 加密存储在cookie的密码
 import CryptoJS from "crypto-js";
+// cookie 设置和清除方法
+import { setCookie, clearCookie } from "../utils/Cookie.js";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -87,16 +89,14 @@ export default {
       form: this.$form.createForm(this, { name: "horizontal_login" }),
     };
   },
-
   mounted() {
     this.$nextTick(() => {
       // 在初始化时，禁用登录按钮
       this.form.validateFields();
       // 如存在cookie，获得相应的账户与密码
       this.getCookie();
-		});
+    });
   },
-
   methods: {
     // Only show error after a field is touched.
     userNameError() {
@@ -131,28 +131,12 @@ export default {
 					);
           if (this.checkedval == true) {
             // 存储账户与密码到cookie
-            this.setCookie(values.userName, values.password, 7);
+            setCookie(values.userName, values.password, 7);
           } else {
-            this.clearCookie();
+            clearCookie();
           }
         }
       });
-    },
-    // 是否记住密码
-    onChange(checked) {
-      this.checkedval = checked;
-    },
-    //设置cookie
-    setCookie(c_name, c_pwd, exdays) {
-      // 加密pwd，开发环境与生产环境 salt 应不一样（也就是要换掉kolin）
-      let en_pwd = CryptoJS.AES.encrypt(c_pwd, "kolin");
-      let exdate = new Date(); //获取时间
-      exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays); //保存的天数
-      //字符串拼接cookie
-      window.document.cookie =
-        "userName" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
-      window.document.cookie =
-        "userPwd" + "=" + en_pwd + ";path=/;expires=" + exdate.toGMTString();
     },
     //读取cookie
     getCookie: function () {
@@ -173,9 +157,9 @@ export default {
         }
       }
     },
-    //清除cookie
-    clearCookie: function () {
-      this.setCookie("", "", -1); //修改2值都为空，天数为负1天就好了
+    // 是否记住密码
+    onChange(checked) {
+      this.checkedval = checked;
     },
   },
 };

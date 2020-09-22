@@ -22,7 +22,7 @@
             <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
-				<a-form-item
+        <a-form-item
           :validate-status="phoneNumError() ? 'error' : ''"
           :help="phoneNumError() || ''"
         >
@@ -34,7 +34,7 @@
             placeholder="请输入手机号码"
             class="antdinput"
             size="large"
-						type="number"
+            type="number"
           >
             <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
           </a-input>
@@ -57,9 +57,9 @@
           </a-input-password>
         </a-form-item>
         <a-form-item
-					:validate-status="secondPasswordError() ? 'error' : ''"
-					:help="secondPasswordError() || ''"
-				>
+          :validate-status="secondPasswordError() ? 'error' : ''"
+          :help="secondPasswordError() || ''"
+        >
           <a-input-password
             v-decorator="[
 						'secondPassword',
@@ -116,13 +116,13 @@ export default {
   methods: {
     // Only show error after a field is touched.
     userNameError() {
-			const { getFieldError, isFieldTouched } = this.form;
+      const { getFieldError, isFieldTouched } = this.form;
       return isFieldTouched("userName") && getFieldError("userName");
-		},
-		phoneNumError() {
-			const { getFieldError, isFieldTouched } = this.form;
+    },
+    phoneNumError() {
+      const { getFieldError, isFieldTouched } = this.form;
       return isFieldTouched("phoneNum") && getFieldError("phoneNum");
-		},
+    },
     passwordError() {
       const { getFieldError, isFieldTouched } = this.form;
       return isFieldTouched("password") && getFieldError("password");
@@ -136,21 +136,21 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
-				if(values.phoneNum.length != 11) {
-					return this.$message.error("你输入的手机号码不是11位")
-				} else if (values.password != values.secondPassword) {
-					return this.$message.error("注册失败，请输入相同的密码")
-				} else {
-					let strength = checkStrong(values.password)
+        if (values.phoneNum.length != 11) {
+          return this.$message.error("你输入的手机号码不是11位");
+        } else if (values.password != values.secondPassword) {
+          return this.$message.error("注册失败，请输入相同的密码");
+        } else {
+          let strength = checkStrong(values.password);
           if (!err && strength == 4) {
             let pagerouter = this.$router;
-						let pagemessage = this.$message;
-						// md5 加密盐，开发环境的盐应与生产环境的盐不同
-						let salt = "kolin"
+            let pagemessage = this.$message;
+            // md5 加密盐，开发环境的盐应与生产环境的盐不同
+            let salt = "kolin";
             signupFun(
               "createstaff/",
               {
-								id: values.phoneNum,
+                id: values.phoneNum,
                 username: values.userName,
                 password: md5(values.password + salt),
               },
@@ -159,8 +159,10 @@ export default {
               pagemessage
             );
           } else {
-						return this.$message.error("注册失败，请输入强度较高的密码（至少12位，并包括一个英文标点符号和一个英文字母和数字）")
-					}
+            return this.$message.error(
+              "注册失败，请输入强度较高的密码（至少12位，并包括一个英文标点符号和一个英文字母和数字）"
+            );
+          }
         }
       });
     },
@@ -221,7 +223,7 @@ export default {
 .antdinput {
   display: inline-block;
   width: 46vw;
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .rememberpw {

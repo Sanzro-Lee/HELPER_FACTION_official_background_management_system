@@ -15,9 +15,8 @@ import MasterInfo from "../pages/Master/MasterInfo.vue";
 const routes = [
   {
     path: "/",
-    name: "login Page",
+    name: "root Page",
 		redirect: "/login",
-		meta: {}
   },
   {
     path: "/login",
