@@ -2,10 +2,12 @@ import axios from "axios";
 
 let domain = "http://127.0.0.1:8000/";
 
+// 登录方法
 function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
   axios.post(domain + apiname, params).then((res) => {
     if (res.data.length != 0) {
-			// localStorage.setItem("login", "login")
+			// 保存登录状态
+			window.localStorage.setItem("login", "login")
       pagerouter.push({
         path: replacepath,
       });
@@ -16,19 +18,7 @@ function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
   })
 }
 
-function checkLogin(apiname, params, pagerouter, pagemessage) {
-  axios.post(domain + apiname, params).then((res) => {
-    if (res.data.status == "ok") {
-      pagerouter.push({
-        path: "/index",
-      });
-      pagemessage.info("你已登录，正在为你跳转");
-    } else {
-      pagemessage.error("你未登录，请你登录");
-    }
-  })
-}
-
+// 注册方法
 function signupFun(apiname, params, pagerouter, replacepath, pagemessage) {
   axios.post(domain + apiname, params).then((res) => {
     if (res.data == -1) {
@@ -44,4 +34,4 @@ function signupFun(apiname, params, pagerouter, replacepath, pagemessage) {
   })
 }
 
-export { loginFun, signupFun, checkLogin };
+export { loginFun, signupFun };

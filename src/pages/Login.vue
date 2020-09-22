@@ -74,6 +74,7 @@ import md5 from "js-md5";
 import CryptoJS from "crypto-js";
 // cookie 设置和清除方法
 import { setCookie, clearCookie } from "../utils/Cookie.js";
+import {checkLogin} from "../utils/ChekLogin.js";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -95,7 +96,12 @@ export default {
       this.form.validateFields();
       // 如存在cookie，获得相应的账户与密码
       this.getCookie();
-    });
+		});
+		// 检测登录状态
+		let loginText = window.localStorage.getItem("login")
+		if (loginText) {
+			checkLogin(this.$router, this.$message)
+		}
   },
   methods: {
     // Only show error after a field is touched.

@@ -95,6 +95,7 @@
 import { signupFun } from "../utils/Requestdata.js";
 import { checkStrong } from "../utils/CheckpassStrong.js";
 import md5 from "js-md5";
+import { checkLogin } from "../utils/ChekLogin.js";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -111,7 +112,11 @@ export default {
     this.$nextTick(() => {
       // To disabled submit button at the beginning.
       this.form.validateFields();
-    });
+		});
+		let loginText = window.localStorage.getItem("login")
+		if (loginText) {
+			checkLogin(this.$router, this.$message)
+		}
   },
   methods: {
     // Only show error after a field is touched.
@@ -160,7 +165,7 @@ export default {
             );
           } else {
             return this.$message.error(
-              "注册失败，请输入强度较高的密码（至少12位，并包括一个英文标点符号和一个英文字母和数字）"
+              "注册失败，密码强度不足（至少12位，并包括1个英文标点符号和1个英文字母和1个数字）"
             );
           }
         }

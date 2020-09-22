@@ -37,6 +37,7 @@ export default {
       console.log(value);
     },
     logOut() {
+			localStorage.removeItem('login')
 			this.$router.push({
 				path: "/login",
 			});
