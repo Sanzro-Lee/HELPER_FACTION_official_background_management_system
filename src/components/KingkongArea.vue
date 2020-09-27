@@ -31,7 +31,7 @@
       <img class="chartsvg" src="../assets/todayOrderBarChart.svg" />
     </a-col>
     <a-col class="borderout" :span="8" @click="clickBlock(4)" :style="{display: todayOrderShow}">
-      <span class="areatitle">今日订单量</span>
+      <span class="areatitle">月度交易情况</span>
       <span class="usernum">1453</span>
       <span class="arrowtext">
         <a-icon type="arrow-up" />13.8%

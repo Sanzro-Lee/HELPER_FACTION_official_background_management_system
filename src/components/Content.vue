@@ -98,7 +98,7 @@ export default {
         yField: "num",
         meta: {
           type: {
-            alias: "星期",
+            alias: "本周",
           },
           num: {
             alias: text,
