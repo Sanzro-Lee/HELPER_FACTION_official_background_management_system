@@ -17,6 +17,7 @@
 import Header from "../../components/Header";
 import Sider from "../../components/Sider";
 import UserTable from "../../components/User/UserTable";
+import { checkLogout } from "../../utils/ChekLogin.js";
 
 export default {
   data() {
@@ -28,6 +29,13 @@ export default {
 		Header,
     Sider,
     UserTable,
+	},
+	mounted() {
+    // 检测登录状态
+		let loginText = window.localStorage.getItem("username");
+    if (!loginText) {
+			checkLogout(this.$router, this.$message);
+		}
   },
 };
 </script>

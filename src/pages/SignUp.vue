@@ -113,7 +113,7 @@ export default {
       // To disabled submit button at the beginning.
       this.form.validateFields();
 		});
-		let loginText = window.localStorage.getItem("login")
+		let loginText = window.localStorage.getItem("username")
 		if (loginText) {
 			checkLogin(this.$router, this.$message)
 		}

@@ -1,12 +1,16 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
+  <a-layout id="components-layout-demo-custom-trigger" style="height: 100%">
     <Sider />
     <a-layout>
       <Header :show="parentsshow" />
       <a-layout-content style="width: 100%">
         <div class="contentTitle">总览</div>
         <div style="width: 100%">
-          <a-range-picker class="datePicker" @change="onChange" :locale="locale" />
+          <a-range-picker
+            class="datePicker"
+            @change="onChange"
+            :locale="locale"
+          />
         </div>
         <KingkongArea @clickBlock="clickhhh" />
         <Content ref="contentblock" />
@@ -21,13 +25,21 @@ import Header from "../components/Header";
 import Sider from "../components/Sider";
 import KingkongArea from "../components/KingkongArea";
 import Content from "../components/Content";
+import { checkLogout } from "../utils/ChekLogin.js";
 
 export default {
   data() {
     return {
-			locale,
-			parentsshow: "none",
+      locale,
+      parentsshow: "none",
     };
+  },
+  beforeCreate() {
+    // 检测登录状态
+		let loginText = window.localStorage.getItem("username");
+    if (!loginText) {
+			checkLogout(this.$router, this.$message);
+		}
   },
   components: {
     Header,
@@ -38,12 +50,12 @@ export default {
   methods: {
     onChange(date, dateString) {
       console.log(date, dateString);
-		},
-		// 点击 KingkongArae 内部的 clickBlock 方法后传值到 Content 的 contentClick 方法内。
-		clickhhh (e) {
-			this.$refs.contentblock.contentClick(e)
-		}
-	},
+    },
+    // 点击 KingkongArae 内部的 clickBlock 方法后传值到 Content 的 contentClick 方法内。
+    clickhhh(e) {
+      this.$refs.contentblock.contentClick(e);
+    },
+  },
 };
 </script>
 

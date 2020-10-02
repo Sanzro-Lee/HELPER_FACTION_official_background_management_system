@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <!-- 现状图 -->
-    <div id="areachart" :style="{display: areashow}"></div>
+    <div id="areachart" :style="{ display: areashow }"></div>
     <!-- 柱状图 -->
-    <div id="cloumnchart" :style="{display: clomnshow}"></div>
+    <div id="cloumnchart" :style="{ display: clomnshow }"></div>
   </div>
 </template>
 
@@ -115,20 +115,20 @@ export default {
     this.$options.StackedArea();
   },
   methods: {
-		// e 值来自 KingkongArea 组件，值通过 Index 组件 传递。
+    // e 值来自 KingkongArea 组件，值通过 Index 组件 传递。
     contentClick(e) {
       if (e == 1) {
-        this.clickUser()
-			}
-			if (e == 2) {
-				this.clickMaster()
-			}
-			if (e == 3) {
-				this.clickOrder()
-			}
-			if (e == 4) {
-				this.clickTurnover()
-			}
+        this.clickUser();
+      }
+      if (e == 2) {
+        this.clickMaster();
+      }
+      if (e == 3) {
+        this.clickOrder();
+      }
+      if (e == 4) {
+        this.clickTurnover();
+      }
     },
     // 点击本周登录用户量块
     clickUser() {

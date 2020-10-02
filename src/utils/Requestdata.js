@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setlocalStorage } from "./SetLocalStorage.js";
 
 let domain = "http://127.0.0.1:8000/";
 
@@ -7,7 +8,7 @@ function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
   axios.post(domain + apiname, params).then((res) => {
     if (res.data.length != 0) {
 			// 保存登录状态
-			window.localStorage.setItem("login", "login")
+			setlocalStorage("username", params.username)
       pagerouter.push({
         path: replacepath,
       });

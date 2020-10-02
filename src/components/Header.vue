@@ -2,15 +2,17 @@
   <a-layout-header style="background: #fff; padding: 0">
     <a-input-search
       :placeholder="msg"
-      :style="{width: '300px', marginLeft: '20px', display: show}"
+      :style="{ width: '300px', marginLeft: '20px', display: show }"
       @search="onSearch"
     />
-    <a-dropdown :style="{color: 'black', float: 'right', marginRight: '20px'}">
-      <a class="ant-dropdown-link" @click="e => e.preventDefault()">
+    <a-dropdown
+      :style="{ color: 'black', float: 'right', marginRight: '20px' }"
+    >
+      <a class="ant-dropdown-link" @click="(e) => e.preventDefault()">
         {{ username }}
         <a-icon type="down" />
       </a>
-      <a-menu slot="overlay" :style="{top: '-20px', right: '10px'}">
+      <a-menu slot="overlay" :style="{ top: '-20px' }">
         <a-menu-item>
           <a href="javascript:;" @click="logOut">退出账号</a>
         </a-menu-item>
@@ -20,6 +22,10 @@
 </template>
 
 <script>
+import {
+  getlocalStorage,
+  removelocalStorage,
+} from "../utils/SetLocalStorage.js";
 
 export default {
   name: "Header",
@@ -37,24 +43,15 @@ export default {
       console.log(value);
     },
     logOut() {
-			localStorage.removeItem('login')
-			this.$router.push({
-				path: "/login",
-			});
+      removelocalStorage("username");
+      this.$router.push({
+        path: "/login",
+      });
     },
   },
   mounted() {
-    // 将 cookie 的用户名发送给 header
-    if (document.cookie.length > 0) {
-      let arr = document.cookie.split("; ");
-      for (let i = 0; i < arr.length; i++) {
-        let arr2 = arr[i].split("="); //再次切割
-        //判断查找相对应的值
-        if (arr2[0] == "userName") {
-          this.username = arr2[1]; //保存到保存数据的地方
-        }
-      }
-    }
+		let arr = getlocalStorage("username");
+    this.username = arr;
   },
 };
 </script>

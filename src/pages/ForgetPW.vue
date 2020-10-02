@@ -17,17 +17,29 @@
             ]"
             placeholder="请输入绑定的手机号码"
             class="antdinput"
-						size="large"
+            size="large"
           >
-            <a-icon slot="prefix" type="phone" style="color:rgba(0,0,0,.25)" />
+            <a-icon
+              slot="prefix"
+              type="phone"
+              style="color: rgba(0, 0, 0, 0.25)"
+            />
           </a-input>
         </a-form-item>
         <a-form-item
           :validate-status="userNameError() ? 'error' : ''"
           :help="userNameError() || ''"
         >
-          <a-input placeholder="请输入收到的验证码" class="antdinput" size="large">
-            <a-icon slot="prefix" type="message" style="color:rgba(0,0,0,.25)" />
+          <a-input
+            placeholder="请输入收到的验证码"
+            class="antdinput"
+            size="large"
+          >
+            <a-icon
+              slot="prefix"
+              type="message"
+              style="color: rgba(0, 0, 0, 0.25)"
+            />
           </a-input>
         </a-form-item>
         <a-form-item
@@ -41,17 +53,29 @@
             ]"
             placeholder="请输入新密码"
             class="antdinput"
-						size="large"
+            size="large"
           >
-            <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
+            <a-icon
+              slot="prefix"
+              type="lock"
+              style="color: rgba(0, 0, 0, 0.25)"
+            />
           </a-input>
         </a-form-item>
         <a-form-item
           :validate-status="passwordError() ? 'error' : ''"
           :help="passwordError() || ''"
         >
-          <a-input placeholder="请再输一遍新密码" class="antdinput" size="large">
-            <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
+          <a-input
+            placeholder="请再输一遍新密码"
+            class="antdinput"
+            size="large"
+          >
+            <a-icon
+              slot="prefix"
+              type="lock"
+              style="color: rgba(0, 0, 0, 0.25)"
+            />
           </a-input>
         </a-form-item>
         <a-form-item class="antbtngroup">
@@ -61,18 +85,24 @@
             html-type="submit"
             :disabled="hasErrors(form.getFieldsError())"
             shape="round"
-          >确定</a-button>
+            >确定</a-button
+          >
           <a-button class="signupbtn" type="dange" shape="round">
             <router-link to="/login">取消</router-link>
           </a-button>
         </a-form-item>
       </a-form>
     </div>
-    <span class="footertext">Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since 2018</span>
+    <span class="footertext"
+      >Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
+      2018</span
+    >
   </div>
 </template>
 
 <script>
+import { checkLogout } from "../utils/ChekLogin.js";
+
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
 }
@@ -84,16 +114,17 @@ export default {
       form: this.$form.createForm(this, { name: "horizontal_login" }),
     };
   },
-
-  components: {},
-
   mounted() {
     this.$nextTick(() => {
       // To disabled submit button at the beginning.
       this.form.validateFields();
     });
+    // 检测登录状态
+    let loginText = window.localStorage.getItem("username");
+    if (!loginText) {
+      checkLogout(this.$router, this.$message);
+    }
   },
-
   methods: {
     // Only show error after a field is touched.
     userNameError() {
@@ -187,7 +218,7 @@ export default {
 
 .antbtngroup {
   width: 100%;
-	display: block;
+  display: block;
   padding: 20px;
 }
 
@@ -200,7 +231,7 @@ export default {
 }
 
 .signupbtn {
-	position: fixed;
+  position: fixed;
   width: 22vw;
   height: 50px;
   font-size: 18px;

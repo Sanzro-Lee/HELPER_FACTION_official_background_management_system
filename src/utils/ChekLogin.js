@@ -5,4 +5,11 @@ function checkLogin (router, message) {
 	message.info("你已登录，正在为你跳转")
 }
 
-export { checkLogin }
+function checkLogout (router, message) {
+	router.push({
+		path: "/login",
+	});
+	message.info("你未登录，请先登录")
+}
+
+export { checkLogin, checkLogout }

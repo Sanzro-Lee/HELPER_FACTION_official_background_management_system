@@ -1,11 +1,11 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger" style="height: 100%;">
+  <a-layout id="components-layout-demo-custom-trigger" style="height: 100%">
     <Sider />
     <a-layout>
       <Header :show="parentsshow" />
-      <a-layout-content :style="{overflow: 'initial'}">
+      <a-layout-content :style="{ overflow: 'initial' }">
         <div class="contentTitle">师傅详情</div>
-				<a-icon class="closeinfo" type="close-circle" @click="goback" />
+        <a-icon class="closeinfo" type="close-circle" @click="goback" />
         <MasterInfoDetail class="contentInfo" />
       </a-layout-content>
     </a-layout>
@@ -16,25 +16,33 @@
 import Header from "../../components/Header";
 import Sider from "../../components/Sider";
 import MasterInfoDetail from "../../components/Master/MasterInfoDetail";
+import { checkLogout } from "../../utils/ChekLogin.js";
 
 export default {
   data() {
     return {
-			parentsshow: "none",
-		};
+      parentsshow: "none",
+    };
   },
   components: {
     Header,
     Sider,
     MasterInfoDetail,
   },
+  mounted() {
+    // 检测登录状态
+    let loginText = window.localStorage.getItem("username");
+    if (!loginText) {
+      checkLogout(this.$router, this.$message);
+    }
+  },
   methods: {
-		goback() {
-			this.$router.push({
-				path: "/masterlist",
-			});
-		}
-	},
+    goback() {
+      this.$router.push({
+        path: "/masterlist",
+      });
+    },
+  },
 };
 </script>
 
@@ -54,9 +62,9 @@ export default {
 }
 
 .closeinfo {
-	font-size: 30px;
-	float: right;
-	margin-right: 20px;
-	margin-top: -20px;
+  font-size: 30px;
+  float: right;
+  margin-right: 20px;
+  margin-top: -20px;
 }
 </style>

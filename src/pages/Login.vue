@@ -5,7 +5,12 @@
     <div class="rightside">
       <h1 class="logintitle">叫到帮</h1>
       <span class="weltext">欢迎回来！请你登录你的账号</span>
-      <a-form layout="inline" :form="form" @submit="handleSubmit" :style="{marginLeft: '2vw'}">
+      <a-form
+        layout="inline"
+        :form="form"
+        @submit="handleSubmit"
+        :style="{ marginLeft: '2vw' }"
+      >
         <a-form-item
           :validate-status="userNameError() ? 'error' : ''"
           :help="userNameError() || ''"
@@ -13,14 +18,18 @@
           <a-input
             v-decorator="[
               'userName',
-							{ initialValue: username },
+              { initialValue: username },
               { rules: [{ required: true, message: '啊咧？用户名咧？' }] },
             ]"
             placeholder="请输入用户名"
             class="antdinput"
             size="large"
           >
-            <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
+            <a-icon
+              slot="prefix"
+              type="user"
+              style="color: rgba(0, 0, 0, 0.25)"
+            />
           </a-input>
         </a-form-item>
         <a-form-item
@@ -30,7 +39,7 @@
           <a-input-password
             v-decorator="[
               'password',
-							{ initialValue: password },
+              { initialValue: password },
               { rules: [{ required: true, message: '啊咧？密码咧？' }] },
             ]"
             type="password"
@@ -38,7 +47,11 @@
             class="antdinput"
             size="large"
           >
-            <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
+            <a-icon
+              slot="prefix"
+              type="lock"
+              style="color: rgba(0, 0, 0, 0.25)"
+            />
           </a-input-password>
         </a-form-item>
         <a-form-item :style="{ display: 'block' }">
@@ -55,14 +68,18 @@
             html-type="submit"
             :disabled="hasErrors(form.getFieldsError())"
             shape="round"
-          >登录</a-button>
+            >登录</a-button
+          >
           <a-button class="signupbtn" type="dange" shape="round">
             <router-link to="/signup">注册</router-link>
           </a-button>
         </a-form-item>
       </a-form>
     </div>
-    <span class="footertext">Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since 2018</span>
+    <span class="footertext"
+      >Powered by Sanzro Design 叫到帮™ HELPER FACTION Copyright © Since
+      2018</span
+    >
   </div>
 </template>
 
@@ -74,7 +91,7 @@ import md5 from "js-md5";
 import CryptoJS from "crypto-js";
 // cookie 设置和清除方法
 import { setCookie, clearCookie } from "../utils/Cookie.js";
-import {checkLogin} from "../utils/ChekLogin.js";
+import { checkLogin } from "../utils/ChekLogin.js";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -96,12 +113,12 @@ export default {
       this.form.validateFields();
       // 如存在cookie，获得相应的账户与密码
       this.getCookie();
-		});
-		// 检测登录状态
-		let loginText = window.localStorage.getItem("login")
-		if (loginText) {
-			checkLogin(this.$router, this.$message)
-		}
+    });
+    // 检测登录状态
+    let loginText = window.localStorage.getItem("username");
+    if (loginText) {
+      checkLogin(this.$router, this.$message);
+    }
   },
   methods: {
     // Only show error after a field is touched.
@@ -134,7 +151,7 @@ export default {
             pagerouter,
             "/index",
             pagemessage
-					);
+          );
           if (this.checkedval == true) {
             // 存储账户与密码到cookie
             setCookie(values.userName, values.password, 7);

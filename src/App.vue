@@ -5,11 +5,20 @@
 </template>
 
 <script>
+import { getlocalStorage } from "./utils/SetLocalStorage.js";
+
 export default {
-  data() {
-    return {};
+  mounted: {
+    checklocalStore() {
+      let status = getlocalStorage("username");
+      if (status == -1) {
+        this.$message.error("你的登录已失效，请重新登录");
+        this.$router.push({
+          path: "/login",
+        });
+      }
+    },
   },
-  components: {},
 };
 </script>
 
