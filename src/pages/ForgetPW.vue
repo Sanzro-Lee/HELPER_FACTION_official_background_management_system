@@ -1,7 +1,19 @@
 <template>
   <div class="main">
-    <div class="forgetpwpagebg"></div>
-    <div class="leftside"></div>
+    <div
+      class="forgetpwpagebg"
+      :style="{
+        background: 'url(' + forgetpwbg + ') no-repeat',
+        backgroundSize: 'cover',
+      }"
+    ></div>
+    <div
+      class="leftside"
+      :style="{
+        background: 'url(' + logo01 + ') no-repeat',
+        backgroundSize: 'contain',
+      }"
+    ></div>
     <div class="rightside">
       <h1 class="logintitle">叫到帮</h1>
       <span class="weltext">欢迎回来！请你重新设置你的密码</span>
@@ -102,6 +114,8 @@
 
 <script>
 import { checkLogout } from "../utils/ChekLogin.js";
+import forgetpwbg from "../assets/forgetpwpagebg.png";
+import logo01 from "../assets/logo01.png";
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -111,6 +125,8 @@ export default {
   data() {
     return {
       hasErrors,
+      forgetpwbg: forgetpwbg,
+      logo01: logo01,
       form: this.$form.createForm(this, { name: "horizontal_login" }),
     };
   },
@@ -155,9 +171,6 @@ export default {
 }
 
 .forgetpwpagebg {
-  background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/signuppagebg.png)
-    no-repeat !important;
-  background-size: cover !important;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -165,9 +178,6 @@ export default {
 }
 
 .leftside {
-  background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/logo01.png)
-    no-repeat;
-  background-size: contain;
   position: absolute;
   width: 15%;
   height: 20%;

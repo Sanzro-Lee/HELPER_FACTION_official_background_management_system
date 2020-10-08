@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <div class="signuppagebg"></div>
-    <div class="leftside"></div>
+    <div class="signuppagebg" :style="{ background: 'url('+signupbg+') no-repeat', backgroundSize: 'cover'}"></div>
+    <div class="leftside" :style="{ background: 'url('+logo01+') no-repeat', backgroundSize: 'contain'}"></div>
     <div class="rightside">
       <h1 class="logintitle">叫到帮</h1>
       <span class="weltext">欢迎回来！请你注册你的账号</span>
@@ -96,6 +96,8 @@ import { signupFun } from "../utils/Requestdata.js";
 import { checkStrong } from "../utils/CheckpassStrong.js";
 import md5 from "js-md5";
 import { checkLogin } from "../utils/ChekLogin.js";
+import signupbg from "../assets/signuppagebg.png"
+import logo01 from "../assets/logo01.png"
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field]);
@@ -104,7 +106,9 @@ function hasErrors(fieldsError) {
 export default {
   data() {
     return {
-      hasErrors,
+			hasErrors,
+			signupbg: signupbg,
+			logo01: logo01,
       form: this.$form.createForm(this, { name: "horizontal_login" }),
     };
   },
@@ -182,9 +186,6 @@ export default {
 }
 
 .signuppagebg {
-  background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/forgetpwbg.png)
-    no-repeat !important;
-  background-size: cover !important;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -192,9 +193,6 @@ export default {
 }
 
 .leftside {
-  background: url(https://raw.githubusercontent.com/Sanzro-Lee/HELPER_FACTION_official_background_management_system/master/src/assets/logo01.png)
-    no-repeat;
-  background-size: contain;
   position: absolute;
   width: 15%;
   height: 20%;
