@@ -8,17 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@antv/g2plot": "^1.1.25",
-    "ant-design-vue": "^1.6.5",
+    "@antv/g2plot": "^1.1.28",
+    "ant-design-vue": "^1.7.2",
     "axios": "^0.20.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.1",
     "crypto-js": "^4.0.0",
     "highlight.js": "^9.18.5",
     "js-md5": "^0.7.3",
     "node-forge": "^0.10.0",
     "vue": "^2.6.12",
-    "vue-router": "^3.4.3",
-    "vuex": "^3.5.1"
+    "vue-router": "^3.4.9",
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
