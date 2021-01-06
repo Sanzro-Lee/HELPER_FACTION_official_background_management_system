@@ -10,7 +10,7 @@
   "dependencies": {
     "@antv/g2plot": "^1.1.28",
     "ant-design-vue": "^1.7.2",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "core-js": "^3.8.1",
     "crypto-js": "^4.0.0",
     "highlight.js": "^10.4.1",
