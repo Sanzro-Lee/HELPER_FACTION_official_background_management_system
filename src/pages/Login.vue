@@ -146,7 +146,7 @@ export default {
           // md5 加密盐，开发环境的盐应与生产环境的盐不同
           let salt = "kolin";
           loginFun(
-            "findstaff/",
+            "/api/staff/find",
             {
               username: values.userName,
               // md5 加密发送到后端

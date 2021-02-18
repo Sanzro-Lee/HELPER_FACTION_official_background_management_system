@@ -1,7 +1,8 @@
 import axios from "axios";
 import { setlocalStorage } from "./SetLocalStorage.js";
 
-let domain = "http://127.0.0.1:8000/";
+let domain = "https://kolint.xyz/";
+// let domain = "http://127.0.0.1:8000";
 
 // 登录方法
 function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
@@ -14,7 +15,7 @@ function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
       });
 			pagemessage.success("登录成功");
     } else {
-      pagemessage.error("登录失败，请重新输入账户和密码");
+      pagemessage.error("登录失败，请输入正确的账户和密码");
     }
   })
 }
