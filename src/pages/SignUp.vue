@@ -157,7 +157,7 @@ export default {
             // md5 加密盐，开发环境的盐应与生产环境的盐不同
             let salt = "kolin";
             signupFun(
-              "createstaff/",
+              "/api/staff/createstaff/",
               {
                 id: values.phoneNum,
                 username: values.userName,

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { setlocalStorage } from "./SetLocalStorage.js";
 
-let domain = "https://kolint.xyz/";
-// let domain = "http://127.0.0.1:8000";
+// let domain = "https://kolint.xyz/";
+let domain = "http://127.0.0.1:8000";
 
 // 登录方法
 function loginFun(apiname, params, pagerouter, replacepath, pagemessage) {
