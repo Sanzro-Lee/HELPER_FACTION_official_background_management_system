@@ -13,6 +13,7 @@
     "axios": "^0.24.0",
     "core-js": "^3.19.2",
     "crypto-js": "^4.1.1",
+    "glob-parent": "^6.0.2",
     "highlight.js": "^11.3.1",
     "is-svg": "^4.3.2",
     "js-md5": "^0.7.3",
