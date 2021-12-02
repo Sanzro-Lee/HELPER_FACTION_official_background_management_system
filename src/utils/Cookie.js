@@ -2,9 +2,9 @@
 import CryptoJS from "crypto-js";
 
 //设置cookie
-function setCookie(c_name, c_pwd, exdays) {
-	// 加密pwd，开发环境与生产环境 salt 应不一样（也就是要换掉kolin）
-	let en_pwd = CryptoJS.AES.encrypt(c_pwd, "kolin")
+function setCookie(c_name, c_pw, exdays) {
+	// 加密pwd，开发环境与生产环境 salt 应不一样（也就是要换掉***）
+	let en_pwd = CryptoJS.AES.encrypt(c_pw, "***")
 	//获取时间
 	let exdate = new Date()
 	//保存的天数

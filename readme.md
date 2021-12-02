@@ -46,6 +46,18 @@ port: 8080
 
 运行 ``npm run serve`` 命令后，您电脑上的默认浏览器会自动打开，默认为``localhost:8080``，如果运行的是``npm run build``，则需手动打开 ``src/dist`` 文件夹 📁，双击 ``index.html``，即可预览效果。
 
+```bash
+# 生产环境请修改如下文件的盐
+# 路径：src/utils/Cookie.js:7
+let en_pwd = CryptoJS.AES.encrypt(c_pw, "***")
+# 请将 *** 修改为适合的盐，此处原为 kolin，做备忘。
+
+# 路径：src/pages/Login.vue:180
+# 这里的盐和上面的应当是一样的，因为要解密
+let en_pwd = CryptoJS.AES.decrypt(arr2[1].toString(), "***");
+# 把此处的 *** 改为与上面一样的盐，此处原为 kolin，做备忘。
+```
+
 
 <!-- ## 文档
 
