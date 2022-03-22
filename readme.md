@@ -42,6 +42,14 @@ npm run build
 
 # 修改端口号，请在vue.config.js里修改。默认8080
 port: 8080
+
+# 依赖更新：
+npm outdate
+
+# 随后通过以下命令进行更新
+npm-check -u
+
+# 空格键 选择要更新的依赖，按 回车 确认即可
 ```
 
 运行 ``npm run serve`` 命令后，您电脑上的默认浏览器会自动打开，默认为``localhost:8080``，如果运行的是``npm run build``，则需手动打开 ``src/dist`` 文件夹 📁，双击 ``index.html``，即可预览效果。
